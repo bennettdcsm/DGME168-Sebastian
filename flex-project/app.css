@@ -29,9 +29,8 @@ body {
 
 /* Header -------> */
 header {
-display: flex;
-justify-content: center;
-align-items: center;
+display: inline-block;
+text-align: center;
 background-color: #235A3F;
 padding: 20px;
 margin: 0 auto; 
