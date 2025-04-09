@@ -29,7 +29,7 @@ body {
 
 /* Header -------> */
 header {
-display: inline-block;
+display: block;
 text-align: center;
 background-color: #235A3F;
 padding: 20px;
