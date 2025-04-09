@@ -37,7 +37,7 @@ padding: 20px;
 
 .content-wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   max-width: 1500px;
