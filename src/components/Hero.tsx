@@ -29,7 +29,7 @@ const Hero = () => {
     <section 
       id="home"
       ref={heroRef} 
-      className="min-h-screen bg-white text-black relative opacity-0 transition-opacity duration-1000">
+      className="min-h-screen bg-black text-white relative opacity-0 transition-opacity duration-1000">
       <div className="container mx-auto px-6 pt-32 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
@@ -56,10 +56,10 @@ const Hero = () => {
             </p>
             
             <div className="flex space-x-5 animate-fade-in opacity-0" style={{ animationDelay: '2.1s' }}>
-              <a href="#contact" className="bg-black text-white px-6 py-3 font-medium hover:bg-burgundy transition-colors">
+              <a href="#contact" className="bg-burgundy text-white px-6 py-3 font-medium hover:bg-burgundy/80 transition-colors">
                 Contact
               </a>
-              <a href="#work" className="border border-black px-6 py-3 font-medium hover:bg-black hover:text-white transition-colors">
+              <a href="#work" className="border border-white px-6 py-3 font-medium hover:bg-white hover:text-black transition-colors">
                 See my Work
               </a>
             </div>
