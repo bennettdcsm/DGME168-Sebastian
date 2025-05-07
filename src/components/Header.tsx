@@ -1,0 +1,87 @@
+
+import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header 
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300", 
+        scrolled ? "py-4 bg-white/90 backdrop-blur-sm shadow-sm" : "py-6 bg-transparent"
+      )}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        <a href="#" className="text-black font-playfair text-2xl font-bold">STELLA.</a>
+        
+        <nav className="hidden md:block">
+          <ul className="flex space-x-10">
+            {['Home', 'Work', 'About', 'Contact'].map((item) => (
+              <li key={item}>
+                <a href={`#${item.toLowerCase()}`} className="styled-link">
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <button
+          className="md:hidden"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <div className="w-6 flex flex-col gap-1.5">
+            <span className={cn(
+              "block h-0.5 bg-black transition-all duration-300",
+              mobileMenuOpen ? "w-6 translate-y-2 rotate-45" : "w-6"
+            )}></span>
+            <span className={cn(
+              "block h-0.5 bg-black transition-all duration-300",
+              mobileMenuOpen ? "opacity-0" : "w-4 opacity-100"
+            )}></span>
+            <span className={cn(
+              "block h-0.5 bg-black transition-all duration-300",
+              mobileMenuOpen ? "w-6 -translate-y-2 -rotate-45" : "w-5"
+            )}></span>
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={cn(
+        "md:hidden fixed inset-0 bg-white z-40 transition-all duration-300 ease-in-out flex flex-col justify-center items-center",
+        mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
+      )}>
+        <nav>
+          <ul className="flex flex-col space-y-8 items-center">
+            {['Home', 'Work', 'About', 'Contact'].map((item) => (
+              <li key={item}>
+                <a 
+                  href={`#${item.toLowerCase()}`}
+                  className="text-2xl font-playfair hover:text-burgundy transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
