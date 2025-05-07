@@ -15,22 +15,30 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    { name: 'Home', path: '#home' },
+    { name: 'About', path: '#about' },
+    { name: 'Portfolio', path: '#work' },
+    { name: 'Other Work', path: '#other-work' },
+    { name: 'Contact', path: '#contact' }
+  ];
+
   return (
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300", 
-        scrolled ? "py-4 bg-white/90 backdrop-blur-sm shadow-sm" : "py-6 bg-transparent"
+        scrolled ? "py-3 bg-white/90 backdrop-blur-sm shadow-sm" : "py-5 bg-white"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-black font-playfair text-2xl font-bold">STELLA.</a>
+        <a href="#" className="text-black font-playfair text-2xl font-bold">J SEBASTIAN.</a>
         
         <nav className="hidden md:block">
-          <ul className="flex space-x-10">
-            {['Home', 'Work', 'About', 'Contact'].map((item) => (
-              <li key={item}>
-                <a href={`#${item.toLowerCase()}`} className="styled-link">
-                  {item}
+          <ul className="flex space-x-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a href={item.path} className="text-sm text-black/80 hover:text-burgundy transition-colors">
+                  {item.name}
                 </a>
               </li>
             ))}
@@ -65,15 +73,15 @@ const Header = () => {
         mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
       )}>
         <nav>
-          <ul className="flex flex-col space-y-8 items-center">
-            {['Home', 'Work', 'About', 'Contact'].map((item) => (
-              <li key={item}>
+          <ul className="flex flex-col space-y-6 items-center">
+            {navItems.map((item) => (
+              <li key={item.name}>
                 <a 
-                  href={`#${item.toLowerCase()}`}
-                  className="text-2xl font-playfair hover:text-burgundy transition-colors"
+                  href={item.path}
+                  className="text-xl font-medium hover:text-burgundy transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item}
+                  {item.name}
                 </a>
               </li>
             ))}
