@@ -37,8 +37,7 @@ const Hero = () => {
           
           <p className="mb-8 max-w-lg mx-auto opacity-80 animate-fade-in opacity-0" style={{
           animationDelay: '1.2s'
-        }}>According to ChatGPT: 
-“In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why” </p>
+        }}>According to ChatGPT: “In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why” </p>
           
           <p className="mb-8 max-w-lg mx-auto opacity-80 animate-fade-in opacity-0" style={{
           animationDelay: '1.5s'
