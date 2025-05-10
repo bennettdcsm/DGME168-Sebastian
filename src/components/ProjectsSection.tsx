@@ -5,24 +5,24 @@ import ProjectCard from './ProjectCard';
 const projects = [
   {
     title: "Canada College Digital Art & Animation Website",
-    category: "Web Development",
+    category: "Web Design",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2400",
     link: "#",
     description: "Redesign of the home page of Canada College Digital Art & Animation program"
   },
   {
-    title: "Quill: A Journaling App Website",
+    title: "CSM Athletic Center: QR Code System",
     category: "UX Design",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2400",
     link: "#",
-    description: "Website design and development using Figma"
+    description: "Design of the QR Code System"
   },
   {
-    title: "Production & Graphic Design",
-    category: "Design",
+    title: "DGME Website",
+    category: "Web Design and Development",
     image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2400",
     link: "#",
-    description: "Visual design and advertisement projects"
+    description: "Visual redesign and development"
   },
   {
     title: "Mobile Shopping App",
