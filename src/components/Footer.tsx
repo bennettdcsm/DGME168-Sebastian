@@ -1,12 +1,15 @@
 
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const navItems = [
-    { name: 'Home', path: '#home' },
-    { name: 'About', path: '#about' },
-    { name: 'Portfolio', path: '#work' },
-    { name: 'Contact', path: '#contact' }
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/#about' },
+    { name: 'Portfolio', path: '/#work' },
+    { name: 'Other Work', path: '/other-work' },
+    { name: 'Contact', path: '/#contact' }
   ];
   
   return (
@@ -14,14 +17,14 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <a href="#" className="text-black font-playfair text-xl font-bold">J SEBASTIAN.</a>
+            <Link to="/" className="text-black font-playfair text-xl font-bold">J SEBASTIAN.</Link>
           </div>
           
           <div className="flex space-x-6 mb-4 md:mb-0">
             {navItems.map((item) => (
-              <a key={item.name} href={item.path} className="text-sm text-black/70 hover:text-burgundy">
+              <Link key={item.name} to={item.path} className="text-sm text-black/70 hover:text-burgundy">
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           

@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,11 +17,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '#home' },
-    { name: 'About', path: '#about' },
-    { name: 'Portfolio', path: '#work' },
-    { name: 'Other Work', path: '#other-work' },
-    { name: 'Contact', path: '#contact' }
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/#about' },
+    { name: 'Portfolio', path: '/#work' },
+    { name: 'Other Work', path: '/other-work' },
+    { name: 'Contact', path: '/#contact' }
   ];
 
   return (
@@ -31,15 +32,18 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-black font-playfair text-2xl font-bold">J SEBASTIAN.</a>
+        <Link to="/" className="text-black font-playfair text-2xl font-bold">J SEBASTIAN.</Link>
         
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a href={item.path} className="text-sm text-black/80 hover:text-burgundy transition-colors">
+                <Link 
+                  to={item.path} 
+                  className="text-sm text-black/80 hover:text-burgundy transition-colors"
+                >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -76,13 +80,13 @@ const Header = () => {
           <ul className="flex flex-col space-y-6 items-center">
             {navItems.map((item) => (
               <li key={item.name}>
-                <a 
-                  href={item.path}
+                <Link 
+                  to={item.path}
                   className="text-xl font-medium hover:text-burgundy transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
