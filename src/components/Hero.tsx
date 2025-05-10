@@ -1,6 +1,5 @@
 
 import { useEffect, useRef } from 'react';
-import LiquidMetallic from './MetallicAnimation';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -93,9 +92,9 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right side 3D animation */}
+        {/* Right side content */}
         <div className="h-[500px] md:h-full animate-fade-in opacity-0" style={{ animationDelay: '1.0s' }}>
-          <LiquidMetallic />
+          {/* The 3D animation used to be here, but we're removing it as requested */}
         </div>
       </div>
     </section>
