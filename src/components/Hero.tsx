@@ -30,9 +30,9 @@ const Hero = () => {
       ref={heroRef} 
       className="min-h-screen bg-black text-white relative opacity-0 transition-opacity duration-1000 flex items-center"
     >
-      <div className="container mx-auto px-6 pt-20 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-        {/* Left side content */}
-        <div className="text-left flex flex-col justify-center">
+      <div className="container mx-auto px-6 pt-20 relative z-10">
+        {/* Centered content */}
+        <div className="text-center flex flex-col justify-center items-center max-w-3xl mx-auto">
           <span 
             className="block mb-1 text-sm uppercase tracking-widest font-light animate-fade-in opacity-0" 
             style={{ animationDelay: '0.3s' }}
@@ -53,21 +53,21 @@ const Hero = () => {
           </p>
           
           <p 
-            className="mb-8 max-w-lg opacity-80 animate-fade-in opacity-0" 
+            className="mb-8 opacity-80 animate-fade-in opacity-0" 
             style={{ animationDelay: '1.2s' }}
           >
             According to ChatGPT: "In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why" 
           </p>
           
           <p 
-            className="mb-8 max-w-lg opacity-80 animate-fade-in opacity-0" 
+            className="mb-8 opacity-80 animate-fade-in opacity-0" 
             style={{ animationDelay: '1.5s' }}
           >
             Actually... I am not famous enough to be on ChatGPT, but I do rely on the 3Ws 🤓
           </p>
           
           <p 
-            className="mb-10 max-w-lg opacity-80 animate-fade-in opacity-0" 
+            className="mb-10 opacity-80 animate-fade-in opacity-0" 
             style={{ animationDelay: '1.8s' }}
           >
             I also balance storytelling and visuals to create something cool and unforgettable.
@@ -90,11 +90,6 @@ const Hero = () => {
               See my Work
             </a>
           </div>
-        </div>
-
-        {/* Right side content */}
-        <div className="h-[500px] md:h-full animate-fade-in opacity-0" style={{ animationDelay: '1.0s' }}>
-          {/* The 3D animation used to be here, but we're removing it as requested */}
         </div>
       </div>
     </section>
