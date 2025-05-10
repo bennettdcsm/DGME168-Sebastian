@@ -95,8 +95,8 @@ const AboutSection = () => {
                 <p className="mt-2">Developed responsive websites and applications using React, ensuring high performance and code quality.</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold">UI/UX Designer</h4>
-                <p className="text-burgundy">Creative Agency • 2016 - 2018</p>
+                <h4 className="text-lg font-semibold">ESL Student Tutor</h4>
+                <p className="text-burgundy">College of San Mateo • 2024</p>
                 <p className="mt-2">Created user-centered designs for various digital products, from wireframes to final mockups.</p>
               </div>
             </div>
@@ -109,17 +109,17 @@ const AboutSection = () => {
             </div>
             <div className="space-y-8">
               <div>
-                <h4 className="text-lg font-semibold">Master in Interaction Design</h4>
-                <p className="text-burgundy">Design Institute • 2016</p>
+                <h4 className="text-lg font-semibold">Associate in Arts Degree: Mobile App and Web Design</h4>
+                <p className="text-burgundy">College of San Mateo • 2025 - Present</p>
                 <p className="mt-2">Specialized in user research methodologies and interactive digital experiences.</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold">Bachelor in Computer Science</h4>
-                <p className="text-burgundy">Tech University • 2014</p>
+                <h4 className="text-lg font-semibold">Associate in Arts Degree: Mobile App and Web Development</h4>
+                <p className="text-burgundy">College of San Mateo • 2024 - Present</p>
                 <p className="mt-2">Focus on web development technologies and software engineering principles.</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold">Certificate in Graphic Design</h4>
+                <h4 className="text-lg font-semibold">Google UX Design C</h4>
                 <p className="text-burgundy">Arts Academy • 2012</p>
                 <p className="mt-2">Foundations of visual design, typography, and digital illustration.</p>
               </div>
