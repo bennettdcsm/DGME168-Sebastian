@@ -119,8 +119,8 @@ const AboutSection = () => {
                 <p className="mt-2">Focus on web development technologies and software engineering principles.</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold">Google UX Design C</h4>
-                <p className="text-burgundy">Arts Academy • 2012</p>
+                <h4 className="text-lg font-semibold">Google UX Design Professional Certificate</h4>
+                <p className="text-burgundy">Coursera • 2025</p>
                 <p className="mt-2">Foundations of visual design, typography, and digital illustration.</p>
               </div>
             </div>
