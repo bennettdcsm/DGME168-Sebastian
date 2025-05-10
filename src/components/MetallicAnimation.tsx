@@ -32,6 +32,14 @@ const AnimatedSphere = () => {
 };
 
 const LiquidMetallic = () => {
+  // Add useEffect to ensure proper initialization
+  useEffect(() => {
+    // Force Three.js to be properly initialized
+    if (!window.THREE) {
+      window.THREE = THREE;
+    }
+  }, []);
+
   return (
     <div className="w-full h-full">
       <Canvas camera={{ position: [0, 0, 3] }}>
