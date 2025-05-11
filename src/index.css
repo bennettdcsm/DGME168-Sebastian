@@ -67,6 +67,10 @@
     @apply absolute -bottom-4 left-0 h-0.5 w-24 bg-burgundy;
   }
   
+  .bg-burgundy .section-title::after {
+    @apply bg-black;
+  }
+  
   .styled-link {
     @apply relative inline-block text-black font-medium;
   }
@@ -80,4 +84,3 @@
     @apply w-full;
   }
 }
-
