@@ -24,6 +24,12 @@ const Footer = () => {
         return;
       }
     }
+    
+    // If it's a hash link but we're not on the home page, we need to navigate first
+    if (path.includes('#') && window.location.pathname !== '/') {
+      // Store the hash to scroll to after navigation
+      sessionStorage.setItem('scrollToSection', path.split('#')[1]);
+    }
   };
   
   return (

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
@@ -36,10 +35,32 @@ const Header = () => {
         section.scrollIntoView({ behavior: 'smooth' });
         // Update URL without full page reload
         window.history.pushState(null, '', path);
-        return;
       }
+      return;
+    }
+    
+    // If it's a hash link but we're not on the home page, we need to navigate first
+    if (path.includes('#') && window.location.pathname !== '/') {
+      // Store the hash to scroll to after navigation
+      sessionStorage.setItem('scrollToSection', path.split('#')[1]);
     }
   };
+
+  useEffect(() => {
+    // Check if we have a section to scroll to after navigation
+    const scrollToSection = sessionStorage.getItem('scrollToSection');
+    if (scrollToSection) {
+      const section = document.getElementById(scrollToSection);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+          // Update URL without full page reload
+          window.history.pushState(null, '', `/#${scrollToSection}`);
+        }, 100);
+      }
+      sessionStorage.removeItem('scrollToSection');
+    }
+  }, []);
 
   return (
     <header 

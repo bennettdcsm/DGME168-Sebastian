@@ -1,8 +1,10 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Toggle } from "@/components/ui/toggle";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [isAvailable, setIsAvailable] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -90,10 +92,35 @@ const Hero = () => {
               See my Work
             </a>
           </div>
+          
+          {/* Available to Work Toggle Button */}
+          <div 
+            className="mt-8 animate-fade-in opacity-0" 
+            style={{ animationDelay: '2.4s' }}
+          >
+            <Toggle 
+              pressed={isAvailable} 
+              onPressedChange={setIsAvailable} 
+              className={cn(
+                "flex items-center gap-2 px-4 py-2 rounded-full transition-colors",
+                isAvailable ? "bg-green-500 text-white" : "bg-gray-400 text-white"
+              )}
+            >
+              <span className="flex items-center">
+                <span className={cn(
+                  "w-2 h-2 rounded-full mr-2",
+                  isAvailable ? "bg-white" : "bg-white/60"
+                )}></span>
+                {isAvailable ? "Available to Work" : "Not Available"}
+              </span>
+            </Toggle>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
+const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
 
 export default Hero;
