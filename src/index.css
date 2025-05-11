@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 226 100% 72%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 39 100% 97%;
@@ -25,7 +25,7 @@
     --muted: 39 100% 97%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 273 68% 59%;
+    --accent: 0 68% 27%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -55,7 +55,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
   }
   
   .section-title {
@@ -64,7 +64,7 @@
   
   .section-title::after {
     content: "";
-    @apply absolute -bottom-4 left-0 h-1 w-24 bg-primary;
+    @apply absolute -bottom-4 left-0 h-0.5 w-24 bg-burgundy;
   }
   
   .styled-link {
@@ -73,10 +73,11 @@
   
   .styled-link::after {
     content: "";
-    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-primary transition-all duration-300;
+    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-burgundy transition-all duration-300;
   }
   
   .styled-link:hover::after {
     @apply w-full;
   }
 }
+

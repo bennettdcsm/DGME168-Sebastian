@@ -60,34 +60,34 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 bg-accent relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-24 bg-white">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white opacity-0 animate-fade-in">
-            Let's Bring Your <span className="text-yellow-300">Vision</span> to Life
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 opacity-0 animate-fade-in">
+            Let's Bring Your <span className="text-burgundy">Vision</span> to Life
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="opacity-0 animate-fade-in text-white" style={{ animationDelay: '0.3s' }}>
+            <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <p className="mb-8">I'd love to hear from you and work with you here. I am confident you wanted contacted me with either you have a question about my work, want to discuss a potential project, or just want to say hi. Feel free to reach out.</p>
               <p className="font-medium mb-12">Whatever it is, I am all of ears.</p>
               
               <a 
                 href="mailto:hello@sebastian.com" 
-                className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-lg inline-block font-medium transition-colors"
+                className="bg-burgundy text-white px-6 py-3 inline-block font-medium hover:bg-black transition-colors"
               >
                 Contact
               </a>
             </div>
             
             <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <input 
                     type="text" 
                     name="name" 
                     placeholder="Your Name" 
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full border-b border-black/30 py-3 px-1 placeholder:text-black/50 focus:outline-none focus:border-burgundy"
                     value={formState.name}
                     onChange={handleChange}
                     required
@@ -99,7 +99,7 @@ const ContactSection = () => {
                     type="email" 
                     name="email" 
                     placeholder="Your Email" 
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full border-b border-black/30 py-3 px-1 placeholder:text-black/50 focus:outline-none focus:border-burgundy"
                     value={formState.email}
                     onChange={handleChange}
                     required
@@ -111,7 +111,7 @@ const ContactSection = () => {
                     type="text" 
                     name="subject" 
                     placeholder="Subject" 
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full border-b border-black/30 py-3 px-1 placeholder:text-black/50 focus:outline-none focus:border-burgundy"
                     value={formState.subject}
                     onChange={handleChange}
                     required
@@ -123,7 +123,7 @@ const ContactSection = () => {
                     name="message" 
                     placeholder="Your Message" 
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                    className="w-full border-b border-black/30 py-3 px-1 placeholder:text-black/50 focus:outline-none focus:border-burgundy resize-none"
                     value={formState.message}
                     onChange={handleChange}
                     required
@@ -134,7 +134,7 @@ const ContactSection = () => {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-md font-medium disabled:opacity-70 transition-colors"
+                    className="bg-black text-white px-8 py-3 font-medium hover:bg-burgundy transition-colors disabled:opacity-70"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>

@@ -61,25 +61,20 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section id="work" className="py-20 bg-white relative overflow-hidden">
+    <section id="work" className="py-20 bg-cream">
       <div className="section-container">
         <h2 className="section-title text-center mb-16">My Portfolio</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="animate-fade-in opacity-0 bg-white shadow-lg rounded-lg overflow-hidden"
-              style={{ animationDelay: `${0.2 * index}s` }}
-            >
-              <ProjectCard
-                title={project.title}
-                category={project.category}
-                image={project.image}
-                link={project.link}
-                index={index}
-              />
-            </div>
+            <ProjectCard
+              key={index}
+              title={project.title}
+              category={project.category}
+              image={project.image}
+              link={project.link}
+              index={index}
+            />
           ))}
         </div>
       </div>

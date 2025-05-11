@@ -36,7 +36,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Header />
       
       <div 
@@ -44,32 +44,26 @@ const About = () => {
         className="opacity-0 transition-opacity duration-1000"
       >
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-bauhaus-blue relative overflow-hidden">
-          {/* Bauhaus Geometric Elements */}
-          <div className="bauhaus-circle w-64 h-64 bg-bauhaus-red -left-16 -top-16"></div>
-          <div className="bauhaus-square w-48 h-48 bg-bauhaus-yellow right-20 bottom-20 rotate-12"></div>
-          
+        <section className="pt-32 pb-16 bg-cream">
           <div className="section-container">
-            <div className="flex flex-col md:flex-row gap-12 items-center relative z-10">
+            <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="md:w-1/2">
                 <div className="flex items-center gap-3 mb-4">
-                  <User className="text-bauhaus-yellow" size={24} />
-                  <span className="text-bauhaus-yellow text-sm uppercase tracking-widest font-bold">About Me</span>
+                  <User className="text-burgundy" size={24} />
+                  <span className="text-burgundy text-sm uppercase tracking-widest font-medium">About Me</span>
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">Designer & Developer</h1>
-                <div className="w-24 h-1 bg-bauhaus-yellow mb-8"></div>
-                <p className="text-lg text-white mb-8">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Designer & Developer</h1>
+                <div className="w-24 h-1 bg-burgundy mb-8"></div>
+                <p className="text-lg text-gray-700 mb-8">
                   Creating exceptional digital experiences through thoughtful design and clean, efficient code.
                 </p>
               </div>
               
               <div className="md:w-1/2">
-                <div className="bg-bauhaus-white border-4 border-black h-full w-full aspect-square relative">
-                  {/* Bauhaus-styled placeholder for profile image */}
-                  <div className="w-full h-full flex items-center justify-center text-black relative">
-                    <div className="bauhaus-square w-32 h-32 bg-bauhaus-red absolute top-1/3 left-1/3 -rotate-12"></div>
-                    <div className="bauhaus-circle w-32 h-32 bg-bauhaus-yellow opacity-50 absolute bottom-1/4 right-1/4"></div>
-                    <span className="relative z-10 uppercase font-bold">Profile Image</span>
+                <div className="bg-gray-100 h-full w-full aspect-square">
+                  {/* Placeholder for profile image */}
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    Profile Image
                   </div>
                 </div>
               </div>
@@ -78,13 +72,9 @@ const About = () => {
         </section>
 
         {/* Bio Section */}
-        <section className="py-16 bg-bauhaus-yellow relative overflow-hidden">
-          {/* Bauhaus Geometric Elements */}
-          <div className="bauhaus-square w-40 h-40 bg-bauhaus-red opacity-20 -left-10 top-10 rotate-45"></div>
-          <div className="bauhaus-circle w-60 h-60 bg-bauhaus-blue opacity-10 right-16 -bottom-20"></div>
-          
+        <section className="py-16 bg-white">
           <div className="section-container">
-            <div className="max-w-3xl relative z-10">
+            <div className="max-w-3xl">
               <h2 className="section-title">My Story</h2>
               <div className="space-y-6">
                 <p>
@@ -102,21 +92,17 @@ const About = () => {
         </section>
 
         {/* Experience Section */}
-        <section className="py-16 bg-bauhaus-white relative overflow-hidden">
-          {/* Bauhaus Geometric Elements */}
-          <div className="bauhaus-circle w-48 h-48 bg-bauhaus-blue opacity-20 -left-20 bottom-20"></div>
-          <div className="bauhaus-square w-32 h-32 bg-bauhaus-red opacity-20 right-40 top-20 rotate-12"></div>
-          
+        <section className="py-16 bg-cream">
           <div className="section-container">
             <div className="flex items-center gap-3 mb-8">
-              <Briefcase className="text-bauhaus-red" size={24} />
+              <Briefcase className="text-burgundy" size={24} />
               <h2 className="text-3xl font-bold">Professional Experience</h2>
             </div>
             
-            <div className="space-y-12 relative z-10">
-              <div className="bg-white p-8 border-l-8 border-bauhaus-red">
+            <div className="space-y-12">
+              <div className="bg-white p-8 shadow-sm">
                 <h3 className="text-xl font-bold">Senior UX Designer</h3>
-                <p className="text-bauhaus-red mb-4">Designworks Inc. • 2020 - Present</p>
+                <p className="text-burgundy mb-4">Designworks Inc. • 2020 - Present</p>
                 <p>Leading UX design initiatives for enterprise clients, focusing on creating accessible and intuitive interfaces. Responsible for managing a team of junior designers and establishing design systems that ensure consistency across multiple platforms.</p>
                 <ul className="mt-4 list-disc list-inside text-gray-700">
                   <li>Led the redesign of a major e-commerce platform, improving conversion rates by 35%</li>
@@ -125,9 +111,9 @@ const About = () => {
                 </ul>
               </div>
               
-              <div className="bg-white p-8 border-l-8 border-bauhaus-blue">
+              <div className="bg-white p-8 shadow-sm">
                 <h3 className="text-xl font-bold">Frontend Developer</h3>
-                <p className="text-bauhaus-blue mb-4">Web Solutions • 2018 - 2020</p>
+                <p className="text-burgundy mb-4">Web Solutions • 2018 - 2020</p>
                 <p>Developed responsive websites and applications using React, ensuring high performance and code quality. Collaborated closely with designers to implement pixel-perfect interfaces and smooth interactions.</p>
                 <ul className="mt-4 list-disc list-inside text-gray-700">
                   <li>Built and maintained multiple client websites with React and TypeScript</li>
@@ -136,9 +122,9 @@ const About = () => {
                 </ul>
               </div>
               
-              <div className="bg-white p-8 border-l-8 border-bauhaus-yellow">
+              <div className="bg-white p-8 shadow-sm">
                 <h3 className="text-xl font-bold">UI/UX Designer</h3>
-                <p className="text-bauhaus-yellow mb-4">Creative Agency • 2016 - 2018</p>
+                <p className="text-burgundy mb-4">Creative Agency • 2016 - 2018</p>
                 <p>Created user-centered designs for various digital products, from wireframes to final mockups. Conducted user research and usability testing to inform design decisions.</p>
                 <ul className="mt-4 list-disc list-inside text-gray-700">
                   <li>Designed user interfaces for mobile applications and websites</li>
@@ -151,33 +137,29 @@ const About = () => {
         </section>
 
         {/* Education Section */}
-        <section className="py-16 bg-bauhaus-red text-white relative overflow-hidden">
-          {/* Bauhaus Geometric Elements */}
-          <div className="bauhaus-square w-40 h-40 bg-bauhaus-yellow opacity-20 right-10 top-10"></div>
-          <div className="bauhaus-circle w-60 h-60 bg-white opacity-10 -left-20 -bottom-20"></div>
-          
+        <section className="py-16 bg-white">
           <div className="section-container">
             <div className="flex items-center gap-3 mb-8">
-              <GraduationCap className="text-white" size={24} />
+              <GraduationCap className="text-burgundy" size={24} />
               <h2 className="text-3xl font-bold">Education</h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-              <div className="bg-bauhaus-black p-8 border-b-4 border-bauhaus-yellow">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-cream p-8">
                 <h3 className="text-xl font-bold">Master in Interaction Design</h3>
-                <p className="text-bauhaus-yellow mb-4">Design Institute • 2016</p>
+                <p className="text-burgundy mb-4">Design Institute • 2016</p>
                 <p>Specialized in user research methodologies and interactive digital experiences. Thesis focused on designing intuitive interfaces for complex systems.</p>
               </div>
               
-              <div className="bg-bauhaus-black p-8 border-b-4 border-bauhaus-blue">
+              <div className="bg-cream p-8">
                 <h3 className="text-xl font-bold">Bachelor in Computer Science</h3>
-                <p className="text-bauhaus-blue mb-4">Tech University • 2014</p>
+                <p className="text-burgundy mb-4">Tech University • 2014</p>
                 <p>Focus on web development technologies and software engineering principles. Graduated with honors.</p>
               </div>
               
-              <div className="bg-bauhaus-black p-8 border-b-4 border-bauhaus-red">
+              <div className="bg-cream p-8">
                 <h3 className="text-xl font-bold">Certificate in Graphic Design</h3>
-                <p className="text-bauhaus-red mb-4">Arts Academy • 2012</p>
+                <p className="text-burgundy mb-4">Arts Academy • 2012</p>
                 <p>Foundations of visual design, typography, and digital illustration. Completed with distinction.</p>
               </div>
             </div>

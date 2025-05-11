@@ -1,7 +1,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
-import { cn } from "@/lib/utils";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -31,13 +30,13 @@ const Hero = () => {
     <section 
       id="home" 
       ref={heroRef} 
-      className="min-h-screen bg-gradient-to-br from-primary/90 to-accent text-white relative opacity-0 transition-opacity duration-1000 flex items-center overflow-hidden"
+      className="min-h-screen bg-black text-white relative opacity-0 transition-opacity duration-1000 flex items-center"
     >
       <div className="container mx-auto px-6 pt-20 relative z-10">
         {/* Centered content */}
         <div className="text-center flex flex-col justify-center items-center max-w-3xl mx-auto">
           <span 
-            className="block mb-1 text-sm uppercase tracking-widest font-bold animate-fade-in opacity-0" 
+            className="block mb-1 text-sm uppercase tracking-widest font-light animate-fade-in opacity-0" 
             style={{ animationDelay: '0.3s' }}
           >
             Hi there,
@@ -46,7 +45,7 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s' }}
           >
-            I am <span className="text-yellow-300">Sebastian</span>
+            I am <span className="text-burgundy">Sebastian</span>
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
@@ -82,13 +81,13 @@ const Hero = () => {
           >
             <a 
               href="#contact" 
-              className="bg-accent hover:bg-accent/80 text-white px-8 py-4 rounded-lg font-medium transition-colors"
+              className="bg-burgundy text-white px-8 py-4 font-medium hover:bg-burgundy/80 transition-colors"
             >
               Contact
             </a>
             <a 
               href="#work" 
-              className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 rounded-lg font-medium transition-colors"
+              className="border border-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
             >
               See my Work
             </a>
@@ -103,14 +102,14 @@ const Hero = () => {
               pressed={isAvailable} 
               onPressedChange={setIsAvailable} 
               className={cn(
-                "flex items-center gap-2 px-4 py-2 transition-colors rounded-full",
-                isAvailable ? "bg-green-500 text-white" : "bg-gray-300 text-gray-700"
+                "flex items-center gap-2 px-4 py-2 rounded-full transition-colors",
+                isAvailable ? "bg-green-500 text-white" : "bg-gray-400 text-white"
               )}
             >
               <span className="flex items-center">
                 <span className={cn(
                   "w-2 h-2 rounded-full mr-2",
-                  isAvailable ? "bg-white" : "bg-gray-500"
+                  isAvailable ? "bg-white" : "bg-white/60"
                 )}></span>
                 {isAvailable ? "Available to Work" : "Not Available"}
               </span>
@@ -121,5 +120,7 @@ const Hero = () => {
     </section>
   );
 };
+
+const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
 
 export default Hero;

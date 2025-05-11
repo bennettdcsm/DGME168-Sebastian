@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
@@ -80,7 +79,7 @@ const Header = () => {
                 <Link 
                   to={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className="text-sm text-black/80 hover:text-primary transition-colors"
+                  className="text-sm text-black/80 hover:text-burgundy transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -122,7 +121,7 @@ const Header = () => {
               <li key={item.name}>
                 <Link 
                   to={item.path}
-                  className="text-xl font-medium hover:text-primary transition-colors"
+                  className="text-xl font-medium hover:text-burgundy transition-colors"
                   onClick={() => handleNavClick(item.path)}
                 >
                   {item.name}

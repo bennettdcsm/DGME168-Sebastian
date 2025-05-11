@@ -1,69 +1,54 @@
 
-import { useRef, useEffect } from 'react';
-import * as THREE from 'three';
+import { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Environment, useGLTF, OrbitControls } from '@react-three/drei';
+import { MeshDistortMaterial, Sphere } from '@react-three/drei';
+import * as THREE from 'three';
 
-function Model({ rotation = [0, 0, 0] as [number, number, number] }) {
-  const groupRef = useRef<THREE.Group>(null!);
-  const { scene } = useGLTF('/lovable-uploads/14c07885-b475-4aa5-98d8-3903153a511b.png');
-
-  useEffect(() => {
-    if (!scene) return;
-    
-    scene.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        child.material = new THREE.MeshStandardMaterial({
-          color: 0xC0C0C0,
-          metalness: 1,
-          roughness: 0.1,
-        });
-      }
-    });
-  }, [scene]);
-
+const AnimatedSphere = () => {
+  const sphereRef = useRef<THREE.Mesh>(null);
+  const clock = useMemo(() => new THREE.Clock(), []);
+  
+  // Animation
   useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += 0.003;
-    }
+    if (!sphereRef.current) return;
+    
+    const t = clock.getElapsedTime() * 0.15;
+    sphereRef.current.rotation.x = Math.cos(t) * 0.2;
+    sphereRef.current.rotation.y = Math.sin(t) * 0.2;
   });
 
   return (
-    <group ref={groupRef} rotation={rotation}>
-      <primitive object={scene} scale={1.5} />
-    </group>
+    <Sphere args={[1.4, 64, 64]} ref={sphereRef}>
+      <MeshDistortMaterial 
+        color="#8B0000"
+        attach="material" 
+        distort={0.4} 
+        speed={1.5} 
+        metalness={0.8}
+        roughness={0.15}
+      />
+    </Sphere>
   );
-}
+};
 
-const MetallicAnimation = () => {
-  // Preload the 3D model to avoid THREE not being defined error
+const LiquidMetallic = () => {
+  // Add useEffect to ensure proper initialization
   useEffect(() => {
-    // Fix the error by properly importing THREE from the 'three' package
-    // Instead of accessing it through window.THREE
-    const loader = new THREE.TextureLoader();
-    loader.setCrossOrigin('');
+    // Force Three.js to be properly initialized
+    if (!window.THREE) {
+      window.THREE = THREE;
+    }
   }, []);
 
   return (
-    <div className="w-full h-[300px] sm:h-[400px] md:h-[500px]">
-      <Canvas 
-        camera={{ position: [0, 0, 5], fov: 45 }}
-        gl={{ antialias: true }}
-      >
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Model rotation={[0, 0, 0]} />
-        <Environment preset="city" />
-        <OrbitControls 
-          enableZoom={false} 
-          enablePan={false}
-          minPolarAngle={Math.PI / 3}
-          maxPolarAngle={Math.PI / 3}
-        />
+    <div className="w-full h-full">
+      <Canvas camera={{ position: [0, 0, 3] }}>
+        <ambientLight intensity={0.6} />
+        <directionalLight intensity={0.5} position={[5, 5, 5]} />
+        <AnimatedSphere />
       </Canvas>
     </div>
   );
 };
 
-export default MetallicAnimation;
+export default LiquidMetallic;
