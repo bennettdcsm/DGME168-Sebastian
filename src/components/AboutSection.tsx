@@ -1,8 +1,10 @@
+
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { GraduationCap, Briefcase } from 'lucide-react';
+
 const AboutSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -14,15 +16,18 @@ const AboutSection = () => {
     }, {
       threshold: 0.1
     });
+    
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+    
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
+  
   return <section id="about" ref={sectionRef} className="py-24 bg-white">
       <div className="section-container">
         <div className="flex flex-col md:flex-row gap-12">
@@ -40,13 +45,13 @@ const AboutSection = () => {
             animationDelay: '0.3s'
           }}>
               <p>
-                According to ChatGPT: “In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why”
+                According to ChatGPT: "In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why"
               </p>
               <p>
                 Actually I am not famous enough to be on ChatGPT, but I do rely on the 3Ws :D
               </p>
               <p>
-               I’m originally from Colombia, so Spanish is my first language, and I offer my services in both English and Spanish. I am an audio producer and musician by diploma, but visual designer by heart - and diploma as well-
+               I'm originally from Colombia, so Spanish is my first language, and I offer my services in both English and Spanish. I am an audio producer and musician by diploma, but visual designer by heart - and diploma as well-
               </p>
             <p>
               Whether you need a website, a visual piece for your business, branding, or even a good laugh, I am here to help! 
@@ -129,4 +134,5 @@ const AboutSection = () => {
       </div>
     </section>;
 };
+
 export default AboutSection;

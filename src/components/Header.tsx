@@ -17,12 +17,29 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Home', path: '/#home' },
+    { name: 'About', path: '/#about' },
     { name: 'Portfolio', path: '/#work' },
     { name: 'Other Work', path: '/other-work' },
     { name: 'Contact', path: '/#contact' }
   ];
+
+  const handleNavClick = (path: string) => {
+    // Close mobile menu when a link is clicked
+    setMobileMenuOpen(false);
+    
+    // Handle smooth scrolling to sections when on the home page
+    if (path.startsWith('/#') && window.location.pathname === '/') {
+      const sectionId = path.substring(2);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        // Update URL without full page reload
+        window.history.pushState(null, '', path);
+        return;
+      }
+    }
+  };
 
   return (
     <header 
@@ -39,7 +56,8 @@ const Header = () => {
             {navItems.map((item) => (
               <li key={item.name}>
                 <Link 
-                  to={item.path} 
+                  to={item.path}
+                  onClick={() => handleNavClick(item.path)}
                   className="text-sm text-black/80 hover:text-burgundy transition-colors"
                 >
                   {item.name}
@@ -83,7 +101,7 @@ const Header = () => {
                 <Link 
                   to={item.path}
                   className="text-xl font-medium hover:text-burgundy transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => handleNavClick(item.path)}
                 >
                   {item.name}
                 </Link>

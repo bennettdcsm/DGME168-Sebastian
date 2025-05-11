@@ -5,12 +5,26 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Home', path: '/#home' },
+    { name: 'About', path: '/#about' },
     { name: 'Portfolio', path: '/#work' },
     { name: 'Other Work', path: '/other-work' },
     { name: 'Contact', path: '/#contact' }
   ];
+  
+  const handleNavClick = (path: string) => {
+    // Handle smooth scrolling to sections when on the home page
+    if (path.startsWith('/#') && window.location.pathname === '/') {
+      const sectionId = path.substring(2);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        // Update URL without full page reload
+        window.history.pushState(null, '', path);
+        return;
+      }
+    }
+  };
   
   return (
     <footer className="bg-white py-8 border-t border-gray-200">
@@ -22,7 +36,12 @@ const Footer = () => {
           
           <div className="flex space-x-6 mb-4 md:mb-0">
             {navItems.map((item) => (
-              <Link key={item.name} to={item.path} className="text-sm text-black/70 hover:text-burgundy">
+              <Link 
+                key={item.name} 
+                to={item.path} 
+                className="text-sm text-black/70 hover:text-burgundy"
+                onClick={() => handleNavClick(item.path)}
+              >
                 {item.name}
               </Link>
             ))}
