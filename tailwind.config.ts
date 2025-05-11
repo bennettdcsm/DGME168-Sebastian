@@ -27,8 +27,16 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				black: '#000000',
 				white: '#FFFFFF',
-				cream: '#FFFDF9', // Lightened cream color with less green tint
+				cream: '#FFFDF9',
 				burgundy: '#8B0000',
+				bauhaus: {
+					red: '#EA2818',
+					blue: '#1C56B9',
+					yellow: '#FFD800',
+					white: '#FFFFFF',
+					black: '#000000',
+					gray: '#D9D9D9',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

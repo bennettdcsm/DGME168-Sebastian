@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -30,13 +31,18 @@ const Hero = () => {
     <section 
       id="home" 
       ref={heroRef} 
-      className="min-h-screen bg-black text-white relative opacity-0 transition-opacity duration-1000 flex items-center"
+      className="min-h-screen bg-bauhaus-blue text-white relative opacity-0 transition-opacity duration-1000 flex items-center overflow-hidden"
     >
+      {/* Bauhaus Geometric Elements */}
+      <div className="bauhaus-circle w-64 h-64 bg-bauhaus-red -left-16 -top-16"></div>
+      <div className="bauhaus-square w-48 h-48 bg-bauhaus-yellow right-20 bottom-20 rotate-12"></div>
+      <div className="bauhaus-square w-32 h-32 bg-bauhaus-black left-1/4 top-1/3 -rotate-6"></div>
+      
       <div className="container mx-auto px-6 pt-20 relative z-10">
         {/* Centered content */}
         <div className="text-center flex flex-col justify-center items-center max-w-3xl mx-auto">
           <span 
-            className="block mb-1 text-sm uppercase tracking-widest font-light animate-fade-in opacity-0" 
+            className="block mb-1 text-sm uppercase tracking-widest font-bold animate-fade-in opacity-0" 
             style={{ animationDelay: '0.3s' }}
           >
             Hi there,
@@ -45,7 +51,7 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s' }}
           >
-            I am <span className="text-burgundy">Sebastian</span>
+            I am <span className="text-bauhaus-yellow">Sebastian</span>
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
@@ -81,13 +87,13 @@ const Hero = () => {
           >
             <a 
               href="#contact" 
-              className="bg-burgundy text-white px-8 py-4 font-medium hover:bg-burgundy/80 transition-colors"
+              className="bauhaus-button bg-bauhaus-red text-white px-8 py-4 font-medium"
             >
               Contact
             </a>
             <a 
               href="#work" 
-              className="border border-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
+              className="bauhaus-button bg-bauhaus-yellow text-black px-8 py-4 font-medium"
             >
               See my Work
             </a>
@@ -102,14 +108,14 @@ const Hero = () => {
               pressed={isAvailable} 
               onPressedChange={setIsAvailable} 
               className={cn(
-                "flex items-center gap-2 px-4 py-2 rounded-full transition-colors",
-                isAvailable ? "bg-green-500 text-white" : "bg-gray-400 text-white"
+                "flex items-center gap-2 px-4 py-2 transition-colors",
+                isAvailable ? "bg-bauhaus-yellow text-black border-2 border-black" : "bg-bauhaus-gray text-black border-2 border-black"
               )}
             >
               <span className="flex items-center">
                 <span className={cn(
                   "w-2 h-2 rounded-full mr-2",
-                  isAvailable ? "bg-white" : "bg-white/60"
+                  isAvailable ? "bg-green-500" : "bg-gray-500"
                 )}></span>
                 {isAvailable ? "Available to Work" : "Not Available"}
               </span>
@@ -120,7 +126,5 @@ const Hero = () => {
     </section>
   );
 };
-
-const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
 
 export default Hero;

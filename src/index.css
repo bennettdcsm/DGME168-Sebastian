@@ -35,7 +35,7 @@
     --input: 0 0% 85%;
     --ring: 0 0% 0%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
   }
 }
 
@@ -55,7 +55,7 @@
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative;
   }
   
   .section-title {
@@ -64,7 +64,7 @@
   
   .section-title::after {
     content: "";
-    @apply absolute -bottom-4 left-0 h-0.5 w-24 bg-burgundy;
+    @apply absolute -bottom-4 left-0 h-1 w-24 bg-bauhaus-red;
   }
   
   .styled-link {
@@ -73,11 +73,38 @@
   
   .styled-link::after {
     content: "";
-    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-burgundy transition-all duration-300;
+    @apply absolute -bottom-1 left-0 h-0.5 w-0 bg-bauhaus-red transition-all duration-300;
   }
   
   .styled-link:hover::after {
     @apply w-full;
   }
-}
 
+  /* Bauhaus-specific styles */
+  .bauhaus-circle {
+    @apply absolute rounded-full;
+  }
+  
+  .bauhaus-square {
+    @apply absolute;
+  }
+
+  .bauhaus-grid {
+    @apply relative overflow-hidden;
+    background-image: linear-gradient(to right, #000 1px, transparent 1px),
+                     linear-gradient(to bottom, #000 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .bauhaus-button {
+    @apply font-bold uppercase tracking-wide border-4 border-black transition-all duration-300;
+  }
+
+  .bauhaus-button:hover {
+    @apply -translate-x-1 -translate-y-1 shadow-[5px_5px_0_0_rgba(0,0,0,1)];
+  }
+
+  .bauhaus-input {
+    @apply border-b-4 border-black bg-transparent px-2 py-2 focus:outline-none focus:border-bauhaus-red transition-colors;
+  }
+}

@@ -61,20 +61,29 @@ const ProjectsSection = () => {
   }, []);
 
   return (
-    <section id="work" className="py-20 bg-cream">
+    <section id="work" className="py-20 bg-bauhaus-white relative overflow-hidden">
+      {/* Bauhaus Geometric Elements */}
+      <div className="bauhaus-square w-64 h-64 bg-bauhaus-red opacity-20 -left-10 top-1/3 rotate-45"></div>
+      <div className="bauhaus-circle w-48 h-48 bg-bauhaus-blue opacity-20 right-16 bottom-32"></div>
+      
       <div className="section-container">
         <h2 className="section-title text-center mb-16">My Portfolio</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              category={project.category}
-              image={project.image}
-              link={project.link}
-              index={index}
-            />
+            <div 
+              key={index} 
+              className={`animate-fade-in opacity-0 bg-white border-4 ${index % 3 === 0 ? 'border-bauhaus-red' : index % 3 === 1 ? 'border-bauhaus-blue' : 'border-bauhaus-yellow'}`}
+              style={{ animationDelay: `${0.2 * index}s` }}
+            >
+              <ProjectCard
+                title={project.title}
+                category={project.category}
+                image={project.image}
+                link={project.link}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </div>
