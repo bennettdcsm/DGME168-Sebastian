@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, useGLTF, OrbitControls } from '@react-three/drei';
 
-function Model({ rotation = [0, 0, 0] }) {
+function Model({ rotation = [0, 0, 0] as [number, number, number] }) {
   const groupRef = useRef<THREE.Group>(null!);
   const { scene } = useGLTF('/lovable-uploads/14c07885-b475-4aa5-98d8-3903153a511b.png');
 

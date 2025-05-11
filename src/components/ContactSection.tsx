@@ -60,15 +60,11 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 bg-bauhaus-red relative overflow-hidden">
-      {/* Bauhaus Geometric Elements */}
-      <div className="bauhaus-square w-72 h-72 bg-bauhaus-yellow opacity-20 -right-16 -bottom-16 rotate-15"></div>
-      <div className="bauhaus-circle w-48 h-48 bg-bauhaus-black opacity-20 left-12 top-24"></div>
-      
+    <section id="contact" ref={sectionRef} className="py-24 bg-accent relative overflow-hidden">
       <div className="section-container">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white opacity-0 animate-fade-in">
-            Let's Bring Your <span className="text-bauhaus-yellow">Vision</span> to Life
+            Let's Bring Your <span className="text-yellow-300">Vision</span> to Life
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -78,20 +74,20 @@ const ContactSection = () => {
               
               <a 
                 href="mailto:hello@sebastian.com" 
-                className="bauhaus-button bg-bauhaus-yellow text-black px-6 py-3 inline-block font-medium"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-lg inline-block font-medium transition-colors"
               >
                 Contact
               </a>
             </div>
             
             <div className="opacity-0 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-              <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 border-4 border-black">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-lg">
                 <div>
                   <input 
                     type="text" 
                     name="name" 
                     placeholder="Your Name" 
-                    className="bauhaus-input w-full"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     value={formState.name}
                     onChange={handleChange}
                     required
@@ -103,7 +99,7 @@ const ContactSection = () => {
                     type="email" 
                     name="email" 
                     placeholder="Your Email" 
-                    className="bauhaus-input w-full"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     value={formState.email}
                     onChange={handleChange}
                     required
@@ -115,7 +111,7 @@ const ContactSection = () => {
                     type="text" 
                     name="subject" 
                     placeholder="Subject" 
-                    className="bauhaus-input w-full"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                     value={formState.subject}
                     onChange={handleChange}
                     required
@@ -127,7 +123,7 @@ const ContactSection = () => {
                     name="message" 
                     placeholder="Your Message" 
                     rows={5}
-                    className="bauhaus-input w-full resize-none"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                     value={formState.message}
                     onChange={handleChange}
                     required
@@ -138,7 +134,7 @@ const ContactSection = () => {
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="bauhaus-button bg-bauhaus-black text-white px-8 py-3 font-medium disabled:opacity-70"
+                    className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-md font-medium disabled:opacity-70 transition-colors"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>

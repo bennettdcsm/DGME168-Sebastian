@@ -31,13 +31,8 @@ const Hero = () => {
     <section 
       id="home" 
       ref={heroRef} 
-      className="min-h-screen bg-bauhaus-blue text-white relative opacity-0 transition-opacity duration-1000 flex items-center overflow-hidden"
+      className="min-h-screen bg-gradient-to-br from-primary/90 to-accent text-white relative opacity-0 transition-opacity duration-1000 flex items-center overflow-hidden"
     >
-      {/* Bauhaus Geometric Elements */}
-      <div className="bauhaus-circle w-64 h-64 bg-bauhaus-red -left-16 -top-16"></div>
-      <div className="bauhaus-square w-48 h-48 bg-bauhaus-yellow right-20 bottom-20 rotate-12"></div>
-      <div className="bauhaus-square w-32 h-32 bg-bauhaus-black left-1/4 top-1/3 -rotate-6"></div>
-      
       <div className="container mx-auto px-6 pt-20 relative z-10">
         {/* Centered content */}
         <div className="text-center flex flex-col justify-center items-center max-w-3xl mx-auto">
@@ -51,7 +46,7 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s' }}
           >
-            I am <span className="text-bauhaus-yellow">Sebastian</span>
+            I am <span className="text-yellow-300">Sebastian</span>
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
@@ -87,13 +82,13 @@ const Hero = () => {
           >
             <a 
               href="#contact" 
-              className="bauhaus-button bg-bauhaus-red text-white px-8 py-4 font-medium"
+              className="bg-accent hover:bg-accent/80 text-white px-8 py-4 rounded-lg font-medium transition-colors"
             >
               Contact
             </a>
             <a 
               href="#work" 
-              className="bauhaus-button bg-bauhaus-yellow text-black px-8 py-4 font-medium"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 rounded-lg font-medium transition-colors"
             >
               See my Work
             </a>
@@ -108,14 +103,14 @@ const Hero = () => {
               pressed={isAvailable} 
               onPressedChange={setIsAvailable} 
               className={cn(
-                "flex items-center gap-2 px-4 py-2 transition-colors",
-                isAvailable ? "bg-bauhaus-yellow text-black border-2 border-black" : "bg-bauhaus-gray text-black border-2 border-black"
+                "flex items-center gap-2 px-4 py-2 transition-colors rounded-full",
+                isAvailable ? "bg-green-500 text-white" : "bg-gray-300 text-gray-700"
               )}
             >
               <span className="flex items-center">
                 <span className={cn(
                   "w-2 h-2 rounded-full mr-2",
-                  isAvailable ? "bg-green-500" : "bg-gray-500"
+                  isAvailable ? "bg-white" : "bg-gray-500"
                 )}></span>
                 {isAvailable ? "Available to Work" : "Not Available"}
               </span>
