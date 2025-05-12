@@ -118,12 +118,95 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
         </div>
       </section>
 
-      {/* Results Section - Black background */}
+      {/* Process Section - Black background (New) */}
       <section className="py-24 bg-black text-white opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold mb-12 relative">
-            Results
+            Design Process
             <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-burgundy"></span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-4">Research</h3>
+              <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">1</span>
+              </div>
+              <p className="text-gray-300">
+                Extensive user interviews and competitive analysis to understand the market needs and user expectations.
+              </p>
+            </div>
+            <div className="text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-4">Wireframes</h3>
+              <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">2</span>
+              </div>
+              <p className="text-gray-300">
+                Creating low-fidelity designs to establish core functionality and user flows before visual design.
+              </p>
+            </div>
+            <div className="text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-4">Testing</h3>
+              <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <span className="text-2xl">3</span>
+              </div>
+              <p className="text-gray-300">
+                Iterative user testing to refine the experience and address pain points throughout development.
+              </p>
+            </div>
+          </div>
+          <div className="text-center">
+            <button 
+              onClick={onClose}
+              className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors"
+            >
+              Back to Portfolio
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Technologies Section - Cream background (New) */}
+      <section className="py-24 bg-cream opacity-0 translate-y-4 transition-all duration-700">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="font-playfair text-4xl font-bold mb-12 relative">
+            Technologies Used
+            <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-black"></span>
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-2">React</h3>
+              <p className="text-gray-600">Frontend Development</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-2">Figma</h3>
+              <p className="text-gray-600">UI/UX Design</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-2">TailwindCSS</h3>
+              <p className="text-gray-600">Styling</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <h3 className="font-playfair text-2xl font-bold mb-2">Firebase</h3>
+              <p className="text-gray-600">Backend</p>
+            </div>
+          </div>
+          <div className="text-center">
+            <button 
+              onClick={onClose}
+              className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors"
+            >
+              Back to Portfolio
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Results Section - Burgundy background (Moved to the end) */}
+      <section className="py-24 bg-burgundy text-white opacity-0 translate-y-4 transition-all duration-700">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="font-playfair text-4xl font-bold mb-12 relative">
+            Results
+            <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-white"></span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
@@ -147,7 +230,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             </p>
             <button 
               onClick={onClose}
-              className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors"
+              className="px-8 py-3 bg-black text-white hover:bg-black/80 transition-colors"
             >
               Back to Portfolio
             </button>
