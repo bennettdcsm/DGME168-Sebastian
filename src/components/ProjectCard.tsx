@@ -8,9 +8,19 @@ interface ProjectCardProps {
   image: string;
   link: string;
   index: number;
+  description: string;
+  onProjectClick: (index: number) => void;
 }
 
-const ProjectCard = ({ title, category, image, link, index }: ProjectCardProps) => {
+const ProjectCard = ({ 
+  title, 
+  category, 
+  image, 
+  link, 
+  index, 
+  description, 
+  onProjectClick 
+}: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
@@ -21,10 +31,14 @@ const ProjectCard = ({ title, category, image, link, index }: ProjectCardProps) 
     const y = ((e.clientY - rect.top) / rect.height - 0.5) * 10;
     setMousePosition({ x: -x, y: -y });
   };
+
+  const handleClick = () => {
+    onProjectClick(index);
+  };
   
   return (
     <div 
-      className="group relative overflow-hidden opacity-0 animate-fade-in"
+      className="group relative overflow-hidden opacity-0 animate-fade-in cursor-pointer"
       style={{ 
         animationDelay: `${index * 0.2}s`,
         transform: isHovered ? `perspective(1000px) rotateX(${mousePosition.y}deg) rotateY(${mousePosition.x}deg) scale3d(1.02, 1.02, 1.02)` : '',
@@ -36,8 +50,9 @@ const ProjectCard = ({ title, category, image, link, index }: ProjectCardProps) 
         setMousePosition({ x: 0, y: 0 });
       }}
       onMouseMove={handleMouseMove}
+      onClick={handleClick}
     >
-      <a href={link} className="block w-full h-full">
+      <div className="block w-full h-full">
         <div className="relative aspect-square overflow-hidden">
           <img 
             src={image} 
@@ -60,7 +75,7 @@ const ProjectCard = ({ title, category, image, link, index }: ProjectCardProps) 
             </span>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
