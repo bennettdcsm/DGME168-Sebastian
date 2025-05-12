@@ -89,21 +89,21 @@ const CaseStudy = ({
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-4">The Challenge</h3>
-              <p className="text-gray-800 mb-8">As a student within de College of San Mateo district, I realized that Cañada College is one of the few colleges on the Bay Area region who offers the Digital Art & Motion Graphics classes while focusing on 3D animation. 
+              <p className="text-gray-800 mb-8">As a student within de College of San Mateo district, I realized that Cañada College is one of the few colleges on the Bay Area region who offers the Digital Art & Motion Graphics classes while focusing on 3D animation. </p>
 
 
-After doing my research for this project, I discovered that the current Digital Art & Animation webpage does not represent what the program is really about.</p>
+<p className="text-gray-800 mb-8">After doing my research for this project, I discovered that the current Digital Art & Animation webpage does not represent what the program is really about.</p>
             </div>
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-4">The Solution</h3>
-              <p className="text-gray-800 mb-8">Redesign a webpage that focuses on prospective students’ experience while visiting the website: 
+              <p className="text-gray-800 mb-8">Redesign a webpage that focuses on prospective students’ experience while visiting the website: </p>
 
 
-&bull;Using images of other students to spark some excitement and curiosity. 
+ <p className="text-gray-800 mb-8">&bull;Using images of other students to spark some excitement and curiosity. </p>
 
-&bull;Using rounded figures to evoke friendliness and a sense of calm and familiarity.
+ <p className="text-gray-800 mb-8">&bull;Using rounded figures to evoke friendliness and a sense of calm and familiarity.</p>
 
-&bull;Incorporating all the information necessary in a fun layout with a lot of negative space, and friendly faces.  </p>
+ <p className="text-gray-800 mb-8">&bull;Incorporating all the information necessary in a fun layout with a lot of negative space, and friendly faces.</p>
             </div>
           </div>
         </div>
