@@ -184,10 +184,6 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
               <p className="text-gray-300">
                 Extensive user interviews and competitive analysis to understand the market needs and user expectations.
               </p>
-              <button className="mt-4 px-4 py-2 flex items-center gap-2 mx-auto bg-burgundy/20 hover:bg-burgundy/40 rounded-md transition-colors">
-                <Image size={16} />
-                <span>View Research</span>
-              </button>
             </div>
 
             {/* Wireframes Pop-up */}
@@ -218,10 +214,6 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
               <p className="text-gray-300">
                 Creating low-fidelity designs to establish core functionality and user flows before visual design.
               </p>
-              <button className="mt-4 px-4 py-2 flex items-center gap-2 mx-auto bg-burgundy/20 hover:bg-burgundy/40 rounded-md transition-colors">
-                <Image size={16} />
-                <span>View Wireframes</span>
-              </button>
             </div>
 
             {/* Testing Pop-up */}
@@ -252,10 +244,6 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
               <p className="text-gray-300">
                 Iterative user testing to refine the experience and address pain points throughout development.
               </p>
-              <button className="mt-4 px-4 py-2 flex items-center gap-2 mx-auto bg-burgundy/20 hover:bg-burgundy/40 rounded-md transition-colors">
-                <Image size={16} />
-                <span>View Testing</span>
-              </button>
             </div>
           </div>
           <div className="text-center">
