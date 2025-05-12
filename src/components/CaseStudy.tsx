@@ -96,14 +96,14 @@ const CaseStudy = ({
             </div>
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-4">The Solution</h3>
-              <p className="text-gray-800 mb-8">Redesign a webpage that focuses on prospective students’ experience while visiting the website: </p>
+              <p className="text-gray-800 mb-8">Redesign a webpage that focuses on prospective students’ experience while visiting the website:
 
 
- <p className="text-gray-800 mb-8">&bull;Using images of other students to spark some excitement and curiosity. </p>
+&bull;Using images of other students to spark some excitement and curiosity.
 
- <p className="text-gray-800 mb-8">&bull;Using rounded figures to evoke friendliness and a sense of calm and familiarity.</p>
+&bull;Using rounded figures to evoke friendliness and a sense of calm and familiarity.
 
- <p className="text-gray-800 mb-8">&bull;Incorporating all the information necessary in a fun layout with a lot of negative space, and friendly faces.</p>
+&bull;Incorporating all the information necessary in a fun layout with a lot of negative space, and friendly faces.</p>
             </div>
           </div>
         </div>
