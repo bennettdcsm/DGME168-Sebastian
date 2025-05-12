@@ -1,6 +1,7 @@
 
-import { useRef, useEffect } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { useRef, useEffect, useState } from 'react';
+import { ArrowLeft, Image } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 interface CaseStudyProps {
   project: {
@@ -19,8 +20,37 @@ const mockupImages = [
   "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2400"
 ];
 
+// Images for design process popups
+const processImages = {
+  research: [
+    "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2400",
+    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2400"
+  ],
+  wireframes: [
+    "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2400",
+    "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2400"
+  ],
+  testing: [
+    "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2400",
+    "https://images.unsplash.com/photo-1516321165247-4aa89df54354?q=80&w=2400"
+  ]
+};
+
+// Technology logos
+const techLogos = {
+  react: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png",
+  figma: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/320px-Figma-logo.svg.png",
+  tailwindcss: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/320px-Tailwind_CSS_Logo.svg.png",
+  firebase: "https://firebase.google.com/static/downloads/brand-guidelines/PNG/logo-vertical.png"
+};
+
 const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
   const studyRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState<{research: boolean, wireframes: boolean, testing: boolean}>({
+    research: false,
+    wireframes: false,
+    testing: false
+  });
 
   useEffect(() => {
     // Scroll to top when case study is opened
@@ -118,7 +148,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
         </div>
       </section>
 
-      {/* Process Section - Black background (New) */}
+      {/* Process Section - Black background (With Pop-ups) */}
       <section className="py-24 bg-black text-white opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold mb-12 relative">
@@ -126,32 +156,106 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-burgundy"></span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {/* Research Pop-up */}
             <div className="text-center">
               <h3 className="font-playfair text-2xl font-bold mb-4">Research</h3>
-              <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">1</span>
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center cursor-pointer hover:bg-burgundy/80 transition-colors">
+                    <span className="text-2xl">1</span>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-3xl">
+                  <h2 className="font-playfair text-2xl font-bold mb-6">Research Phase</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {processImages.research.map((img, idx) => (
+                      <div key={idx} className="rounded-lg overflow-hidden">
+                        <img src={img} alt={`Research process ${idx + 1}`} className="w-full h-auto object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-gray-700">
+                    Our research phase involved extensive user interviews, competitive analysis, and market research
+                    to understand user needs and expectations. We gathered insights that informed our design decisions
+                    and helped us create a product that truly resonates with the target audience.
+                  </p>
+                </DialogContent>
+              </Dialog>
               <p className="text-gray-300">
                 Extensive user interviews and competitive analysis to understand the market needs and user expectations.
               </p>
+              <button className="mt-4 px-4 py-2 flex items-center gap-2 mx-auto bg-burgundy/20 hover:bg-burgundy/40 rounded-md transition-colors">
+                <Image size={16} />
+                <span>View Research</span>
+              </button>
             </div>
+
+            {/* Wireframes Pop-up */}
             <div className="text-center">
               <h3 className="font-playfair text-2xl font-bold mb-4">Wireframes</h3>
-              <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">2</span>
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center cursor-pointer hover:bg-burgundy/80 transition-colors">
+                    <span className="text-2xl">2</span>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-3xl">
+                  <h2 className="font-playfair text-2xl font-bold mb-6">Wireframe Development</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {processImages.wireframes.map((img, idx) => (
+                      <div key={idx} className="rounded-lg overflow-hidden">
+                        <img src={img} alt={`Wireframe process ${idx + 1}`} className="w-full h-auto object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-gray-700">
+                    Our wireframing process involved creating low-fidelity designs to establish the core functionality and
+                    user flows. This allowed us to iterate quickly and get feedback from stakeholders before moving to the
+                    visual design phase. We created multiple versions to test different navigation patterns.
+                  </p>
+                </DialogContent>
+              </Dialog>
               <p className="text-gray-300">
                 Creating low-fidelity designs to establish core functionality and user flows before visual design.
               </p>
+              <button className="mt-4 px-4 py-2 flex items-center gap-2 mx-auto bg-burgundy/20 hover:bg-burgundy/40 rounded-md transition-colors">
+                <Image size={16} />
+                <span>View Wireframes</span>
+              </button>
             </div>
+
+            {/* Testing Pop-up */}
             <div className="text-center">
               <h3 className="font-playfair text-2xl font-bold mb-4">Testing</h3>
-              <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-2xl">3</span>
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="rounded-full bg-burgundy w-16 h-16 mx-auto mb-4 flex items-center justify-center cursor-pointer hover:bg-burgundy/80 transition-colors">
+                    <span className="text-2xl">3</span>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-3xl">
+                  <h2 className="font-playfair text-2xl font-bold mb-6">User Testing Process</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {processImages.testing.map((img, idx) => (
+                      <div key={idx} className="rounded-lg overflow-hidden">
+                        <img src={img} alt={`Testing process ${idx + 1}`} className="w-full h-auto object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-gray-700">
+                    Our testing phase involved multiple rounds of user testing with participants from our target demographic.
+                    We observed users interacting with our prototypes, collected feedback, and made iterative improvements
+                    to address pain points and improve the overall user experience before development.
+                  </p>
+                </DialogContent>
+              </Dialog>
               <p className="text-gray-300">
                 Iterative user testing to refine the experience and address pain points throughout development.
               </p>
+              <button className="mt-4 px-4 py-2 flex items-center gap-2 mx-auto bg-burgundy/20 hover:bg-burgundy/40 rounded-md transition-colors">
+                <Image size={16} />
+                <span>View Testing</span>
+              </button>
             </div>
           </div>
           <div className="text-center">
@@ -165,7 +269,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
         </div>
       </section>
 
-      {/* Technologies Section - Cream background (New) */}
+      {/* Technologies Section - Cream background (With Logos) */}
       <section className="py-24 bg-cream opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold mb-12 relative">
@@ -173,19 +277,31 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-black"></span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+              <div className="h-16 mb-4 flex items-center">
+                <img src={techLogos.react} alt="React Logo" className="h-14 object-contain" />
+              </div>
               <h3 className="font-playfair text-2xl font-bold mb-2">React</h3>
               <p className="text-gray-600">Frontend Development</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+              <div className="h-16 mb-4 flex items-center">
+                <img src={techLogos.figma} alt="Figma Logo" className="h-12 object-contain" />
+              </div>
               <h3 className="font-playfair text-2xl font-bold mb-2">Figma</h3>
               <p className="text-gray-600">UI/UX Design</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+              <div className="h-16 mb-4 flex items-center">
+                <img src={techLogos.tailwindcss} alt="TailwindCSS Logo" className="h-10 object-contain" />
+              </div>
               <h3 className="font-playfair text-2xl font-bold mb-2">TailwindCSS</h3>
               <p className="text-gray-600">Styling</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+              <div className="h-16 mb-4 flex items-center">
+                <img src={techLogos.firebase} alt="Firebase Logo" className="h-14 object-contain" />
+              </div>
               <h3 className="font-playfair text-2xl font-bold mb-2">Firebase</h3>
               <p className="text-gray-600">Backend</p>
             </div>
@@ -201,7 +317,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
         </div>
       </section>
 
-      {/* Results Section - Burgundy background (Moved to the end) */}
+      {/* Results Section - Burgundy background */}
       <section className="py-24 bg-burgundy text-white opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold mb-12 relative">
