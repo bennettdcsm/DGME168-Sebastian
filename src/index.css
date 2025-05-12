@@ -67,9 +67,9 @@
     @apply absolute -bottom-4 left-0 h-0.5 w-24 bg-burgundy;
   }
   
-  /* Fixed the circular dependency by removing bg-burgundy reference */
-  .bg-burgundy .section-title::after {
-    @apply bg-black;
+  /* Fix circular dependency by using a specific color value instead of the utility class */
+  .burgundy-bg .section-title::after {
+    @apply bg-white;
   }
   
   .styled-link {
