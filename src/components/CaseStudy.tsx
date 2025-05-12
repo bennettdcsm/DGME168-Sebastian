@@ -1,8 +1,6 @@
-
 import { useRef, useEffect, useState } from 'react';
 import { ArrowLeft, Image } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-
 interface CaseStudyProps {
   project: {
     title: string;
@@ -12,28 +10,13 @@ interface CaseStudyProps {
   };
   onClose: () => void;
 }
-
-const mockupImages = [
-  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2400",
-  "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2400",
-  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2400",
-  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2400"
-];
+const mockupImages = ["https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2400", "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2400", "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2400", "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2400"];
 
 // Images for design process popups
 const processImages = {
-  research: [
-    "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2400",
-    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2400"
-  ],
-  wireframes: [
-    "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2400",
-    "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2400"
-  ],
-  testing: [
-    "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2400",
-    "https://images.unsplash.com/photo-1516321165247-4aa89df54354?q=80&w=2400"
-  ]
+  research: ["https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2400", "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2400"],
+  wireframes: ["https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=2400", "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2400"],
+  testing: ["https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2400", "https://images.unsplash.com/photo-1516321165247-4aa89df54354?q=80&w=2400"]
 };
 
 // Technology logos
@@ -43,49 +26,46 @@ const techLogos = {
   tailwindcss: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/320px-Tailwind_CSS_Logo.svg.png",
   firebase: "https://firebase.google.com/static/downloads/brand-guidelines/PNG/logo-vertical.png"
 };
-
-const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
+const CaseStudy = ({
+  project,
+  onClose
+}: CaseStudyProps) => {
   const studyRef = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState<{research: boolean, wireframes: boolean, testing: boolean}>({
+  const [open, setOpen] = useState<{
+    research: boolean;
+    wireframes: boolean;
+    testing: boolean;
+  }>({
     research: false,
     wireframes: false,
     testing: false
   });
-
   useEffect(() => {
     // Scroll to top when case study is opened
     window.scrollTo(0, 0);
-    
-    // Add animation to sections
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100', 'translate-y-0');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
 
+    // Add animation to sections
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
     const sections = studyRef.current?.querySelectorAll('section');
     sections?.forEach(section => {
       observer.observe(section);
     });
-
     return () => {
       sections?.forEach(section => {
         observer.unobserve(section);
       });
     };
   }, []);
-
-  return (
-    <div ref={studyRef} className="fixed inset-0 bg-white z-50 overflow-y-auto">
-      <button 
-        onClick={onClose}
-        className="fixed top-8 left-8 z-50 flex items-center gap-2 text-white bg-black/50 px-4 py-2 rounded-md hover:bg-black transition-colors"
-      >
+  return <div ref={studyRef} className="fixed inset-0 bg-white z-50 overflow-y-auto">
+      <button onClick={onClose} className="fixed top-8 left-8 z-50 flex items-center gap-2 text-white bg-black/50 px-4 py-2 rounded-md hover:bg-black transition-colors">
         <ArrowLeft size={20} />
         Back to Portfolio
       </button>
@@ -109,11 +89,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-4">The Challenge</h3>
-              <p className="text-gray-800 mb-8">
-                This project presented unique challenges in terms of design and user experience.
-                We needed to balance aesthetic appeal with functional navigation to ensure the best
-                possible user journey through the application.
-              </p>
+              <p className="text-gray-800 mb-8">As a student within de College of San Mateo district, I realized that Cañada College is one of the few colleges on the Bay Area region who offers the motion graphics class while focusing on 3D animation, and after doing my research for this project, I discovered that the current Digital Art & Animation webpage does not represent what the program is about.</p>
             </div>
             <div>
               <h3 className="font-playfair text-2xl font-bold mb-4">The Solution</h3>
@@ -135,15 +111,9 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-black"></span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {mockupImages.map((img, idx) => (
-              <div key={idx} className="overflow-hidden rounded-md shadow-xl">
-                <img 
-                  src={img} 
-                  alt={`Mockup ${idx+1}`} 
-                  className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ))}
+            {mockupImages.map((img, idx) => <div key={idx} className="overflow-hidden rounded-md shadow-xl">
+                <img src={img} alt={`Mockup ${idx + 1}`} className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500" />
+              </div>)}
           </div>
         </div>
       </section>
@@ -168,11 +138,9 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                 <DialogContent className="sm:max-w-3xl">
                   <h2 className="font-playfair text-2xl font-bold mb-6">Research Phase</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {processImages.research.map((img, idx) => (
-                      <div key={idx} className="rounded-lg overflow-hidden">
+                    {processImages.research.map((img, idx) => <div key={idx} className="rounded-lg overflow-hidden">
                         <img src={img} alt={`Research process ${idx + 1}`} className="w-full h-auto object-cover" />
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                   <p className="mt-4 text-gray-700">
                     Our research phase involved extensive user interviews, competitive analysis, and market research
@@ -198,11 +166,9 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                 <DialogContent className="sm:max-w-3xl">
                   <h2 className="font-playfair text-2xl font-bold mb-6">Wireframe Development</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {processImages.wireframes.map((img, idx) => (
-                      <div key={idx} className="rounded-lg overflow-hidden">
+                    {processImages.wireframes.map((img, idx) => <div key={idx} className="rounded-lg overflow-hidden">
                         <img src={img} alt={`Wireframe process ${idx + 1}`} className="w-full h-auto object-cover" />
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                   <p className="mt-4 text-gray-700">
                     Our wireframing process involved creating low-fidelity designs to establish the core functionality and
@@ -228,11 +194,9 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
                 <DialogContent className="sm:max-w-3xl">
                   <h2 className="font-playfair text-2xl font-bold mb-6">User Testing Process</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {processImages.testing.map((img, idx) => (
-                      <div key={idx} className="rounded-lg overflow-hidden">
+                    {processImages.testing.map((img, idx) => <div key={idx} className="rounded-lg overflow-hidden">
                         <img src={img} alt={`Testing process ${idx + 1}`} className="w-full h-auto object-cover" />
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                   <p className="mt-4 text-gray-700">
                     Our testing phase involved multiple rounds of user testing with participants from our target demographic.
@@ -247,10 +211,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             </div>
           </div>
           <div className="text-center">
-            <button 
-              onClick={onClose}
-              className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors"
-            >
+            <button onClick={onClose} className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors">
               Back to Portfolio
             </button>
           </div>
@@ -295,10 +256,7 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
             </div>
           </div>
           <div className="text-center">
-            <button 
-              onClick={onClose}
-              className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors"
-            >
+            <button onClick={onClose} className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors">
               Back to Portfolio
             </button>
           </div>
@@ -332,17 +290,12 @@ const CaseStudy = ({ project, onClose }: CaseStudyProps) => {
               resulting in measurable improvements in key performance indicators. The client was
               extremely satisfied with the outcome.
             </p>
-            <button 
-              onClick={onClose}
-              className="px-8 py-3 bg-black text-white hover:bg-black/80 transition-colors"
-            >
+            <button onClick={onClose} className="px-8 py-3 bg-black text-white hover:bg-black/80 transition-colors">
               Back to Portfolio
             </button>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default CaseStudy;
