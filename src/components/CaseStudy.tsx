@@ -99,11 +99,11 @@ After doing my research for this project, I discovered that the current Digital 
               <p className="text-gray-800 mb-8">Redesign a webpage that focuses on prospective students’ experience while visiting the website: 
 
 
-Using images of other students to spark some excitement and curiosity. 
+&bull;Using images of other students to spark some excitement and curiosity. 
 
-Using rounded figures to evoke friendliness and a sense of calm and familiarity.
+&bull;Using rounded figures to evoke friendliness and a sense of calm and familiarity.
 
-Incorporating all the information necessary in a fun layout with a lot of negative space, and friendly faces.  </p>
+&bull;Incorporating all the information necessary in a fun layout with a lot of negative space, and friendly faces.  </p>
             </div>
           </div>
         </div>
