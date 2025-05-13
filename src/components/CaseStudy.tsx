@@ -1,6 +1,9 @@
+
 import { useRef, useEffect, useState } from 'react';
-import { ArrowLeft, Image } from 'lucide-react';
+import { ArrowLeft, Image, ExternalLink } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
 interface CaseStudyProps {
   project: {
     title: string;
@@ -19,13 +22,6 @@ const processImages = {
   testing: ["https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2400", "https://images.unsplash.com/photo-1516321165247-4aa89df54354?q=80&w=2400"]
 };
 
-// Technology logos
-const techLogos = {
-  react: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png",
-  figma: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/320px-Figma-logo.svg.png",
-  tailwindcss: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/320px-Tailwind_CSS_Logo.svg.png",
-  firebase: "https://firebase.google.com/static/downloads/brand-guidelines/PNG/logo-vertical.png"
-};
 const CaseStudy = ({
   project,
   onClose
@@ -40,6 +36,7 @@ const CaseStudy = ({
     wireframes: false,
     testing: false
   });
+  
   useEffect(() => {
     // Scroll to top when case study is opened
     window.scrollTo(0, 0);
@@ -64,6 +61,7 @@ const CaseStudy = ({
       });
     };
   }, []);
+  
   return <div ref={studyRef} className="fixed inset-0 bg-white z-50 overflow-y-auto">
       <button onClick={onClose} className="fixed top-8 left-8 z-50 flex items-center gap-2 text-white bg-black/50 px-4 py-2 rounded-md hover:bg-black transition-colors">
         <ArrowLeft size={20} />
@@ -215,89 +213,32 @@ const CaseStudy = ({
               </p>
             </div>
           </div>
-          <div className="text-center">
-            <button onClick={onClose} className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors">
-              Back to Portfolio
-            </button>
-          </div>
         </div>
       </section>
 
-      {/* Technologies Section - Cream background (With Logos) */}
-      <section className="py-24 bg-cream opacity-0 translate-y-4 transition-all duration-700">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="font-playfair text-4xl font-bold mb-12 relative">
-            Technologies Used
-            <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-black"></span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
-              <div className="h-16 mb-4 flex items-center">
-                <img src={techLogos.react} alt="React Logo" className="h-14 object-contain" />
-              </div>
-              <h3 className="font-playfair text-2xl font-bold mb-2">React</h3>
-              <p className="text-gray-600">Frontend Development</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
-              <div className="h-16 mb-4 flex items-center">
-                <img src={techLogos.figma} alt="Figma Logo" className="h-12 object-contain" />
-              </div>
-              <h3 className="font-playfair text-2xl font-bold mb-2">Figma</h3>
-              <p className="text-gray-600">UI/UX Design</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
-              <div className="h-16 mb-4 flex items-center">
-                <img src={techLogos.tailwindcss} alt="TailwindCSS Logo" className="h-10 object-contain" />
-              </div>
-              <h3 className="font-playfair text-2xl font-bold mb-2">TailwindCSS</h3>
-              <p className="text-gray-600">Styling</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center flex flex-col items-center">
-              <div className="h-16 mb-4 flex items-center">
-                <img src={techLogos.firebase} alt="Firebase Logo" className="h-14 object-contain" />
-              </div>
-              <h3 className="font-playfair text-2xl font-bold mb-2">Firebase</h3>
-              <p className="text-gray-600">Backend</p>
-            </div>
-          </div>
-          <div className="text-center">
-            <button onClick={onClose} className="px-8 py-3 bg-burgundy text-white hover:bg-burgundy/80 transition-colors">
-              Back to Portfolio
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* Removed Technology Section */}
 
-      {/* Results Section - Burgundy background */}
+      {/* Takeaways Section (previously Results) - Burgundy background */}
       <section className="py-24 bg-burgundy text-white opacity-0 translate-y-4 transition-all duration-700">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold mb-12 relative">
-            Results
+            Takeaways
             <span className="absolute -bottom-4 left-0 h-0.5 w-24 bg-white"></span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center">
-              <h3 className="font-playfair text-5xl font-bold mb-4">95%</h3>
-              <p className="text-cream">User Satisfaction</p>
-            </div>
-            <div className="text-center">
-              <h3 className="font-playfair text-5xl font-bold mb-4">40%</h3>
-              <p className="text-cream">Conversion Increase</p>
-            </div>
-            <div className="text-center">
-              <h3 className="font-playfair text-5xl font-bold mb-4">2x</h3>
-              <p className="text-cream">Engagement Rate</p>
-            </div>
+          <div className="mb-16">
+            <ul className="list-disc pl-6 mb-8 text-cream space-y-4">
+              <li className="text-lg">The redesigned interface has significantly improved user engagement, with a 95% user satisfaction rate among test participants.</li>
+              <li className="text-lg">Incorporating real student imagery and rounded design elements created a 40% increase in time spent on the website.</li>
+              <li className="text-lg">User testing revealed that prospective students found the new layout more intuitive and informative, leading to more program inquiries.</li>
+            </ul>
           </div>
-          <div className="text-center">
-            <p className="text-lg mb-8">
-              The redesigned interface has significantly improved user engagement and satisfaction,
-              resulting in measurable improvements in key performance indicators. The client was
-              extremely satisfied with the outcome.
-            </p>
-            <button onClick={onClose} className="px-8 py-3 bg-black text-white hover:bg-black/80 transition-colors">
+          <div className="flex justify-center gap-4">
+            <Button variant="default" className="bg-black hover:bg-black/80" onClick={onClose}>
               Back to Portfolio
-            </button>
+            </Button>
+            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10">
+              See Prototype <ExternalLink className="ml-1 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
