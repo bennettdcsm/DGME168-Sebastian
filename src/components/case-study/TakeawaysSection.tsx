@@ -25,7 +25,7 @@ const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); onClose(); }} 
-            className="bg-black text-white px-8 py-4 font-medium hover:bg-black/80 transition-colors"
+            className="bg-black text-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
           >
             Back to Portfolio
           </a>
