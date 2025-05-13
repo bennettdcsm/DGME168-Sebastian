@@ -7,6 +7,18 @@ interface TakeawaysSectionProps {
 }
 
 const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
+  const handleBackClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onClose();
+    // Add a small delay to ensure the main page is loaded before scrolling
+    setTimeout(() => {
+      const portfolioSection = document.getElementById('work');
+      if (portfolioSection) {
+        portfolioSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <section className="py-24 bg-burgundy text-white opacity-0 translate-y-4 transition-all duration-700">
       <div className="max-w-5xl mx-auto px-6">
@@ -24,7 +36,7 @@ const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
         <div className="flex justify-center gap-4">
           <a 
             href="#" 
-            onClick={(e) => { e.preventDefault(); onClose(); }} 
+            onClick={handleBackClick} 
             className="bg-black text-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
           >
             Back to Portfolio
