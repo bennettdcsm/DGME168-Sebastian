@@ -148,14 +148,14 @@ const CaseStudy = ({
                       </div>)}
                   </div>
                   <p className="mt-4 text-gray-700">
-                    Our research phase involved extensive user interviews, competitive analysis, and market research
-                    to understand user needs and expectations. We gathered insights that informed our design decisions
-                    and helped us create a product that truly resonates with the target audience.
+                    My research phase involved extensive competitive analysis and market research
+                    to understand user needs and expectations. I gathered insights that informed my design decisions
+                    and helped me create a product that truly resonates with the target audience, prospective students.
                   </p>
                 </DialogContent>
               </Dialog>
               <p className="text-gray-300">
-                Extensive user interviews and competitive analysis to understand the market needs and user expectations.
+                Extensive competitive analysis to understand the market needs and user expectations.
               </p>
             </div>
 
@@ -176,9 +176,9 @@ const CaseStudy = ({
                       </div>)}
                   </div>
                   <p className="mt-4 text-gray-700">
-                    Our wireframing process involved creating low-fidelity designs to establish the core functionality and
-                    user flows. This allowed us to iterate quickly and get feedback from stakeholders before moving to the
-                    visual design phase. We created multiple versions to test different navigation patterns.
+                    My wireframing process involved creating a low-fidelity design to establish the core functionality and
+                    user flows. This allowed me to iterate quickly and get feedback from students and instructors before moving to the
+                    visual design phase. I created multiple versions to test different navigation patterns.
                   </p>
                 </DialogContent>
               </Dialog>
@@ -204,8 +204,8 @@ const CaseStudy = ({
                       </div>)}
                   </div>
                   <p className="mt-4 text-gray-700">
-                    Our testing phase involved multiple rounds of user testing with participants from our target demographic.
-                    We observed users interacting with our prototypes, collected feedback, and made iterative improvements
+                    My testing phase involved multiple rounds of user testing with participants from my target demographic.
+                    I observed users interacting with my prototypes, collected feedback, and made iterative improvements
                     to address pain points and improve the overall user experience before development.
                   </p>
                 </DialogContent>
