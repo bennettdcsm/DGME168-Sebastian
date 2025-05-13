@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 
 interface TakeawaysSectionProps {
@@ -23,12 +22,19 @@ const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
           </ul>
         </div>
         <div className="flex justify-center gap-4">
-          <Button variant="default" className="bg-black hover:bg-black/80" onClick={onClose}>
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); onClose(); }} 
+            className="bg-black text-white px-8 py-4 font-medium hover:bg-black/80 transition-colors"
+          >
             Back to Portfolio
-          </Button>
-          <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10">
-            See Prototype <ExternalLink className="ml-1 h-4 w-4" />
-          </Button>
+          </a>
+          <a 
+            href="#" 
+            className="border border-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
+          >
+            See Prototype <ExternalLink className="ml-1 h-4 w-4 inline" />
+          </a>
         </div>
       </div>
     </section>
