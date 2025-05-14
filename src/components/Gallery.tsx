@@ -5,43 +5,43 @@ import { useEffect, useRef } from 'react';
 const galleryItems = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2400",
+    image: "images/Csm_brochure.png",
     title: "CSM Wellness Center Tri-fold Brochure",
     size: "large", // 2x2 span
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2400",
+    image: "images/Snake.png",
     title: "Hide and Snake: Children's Book",
     size: "medium", // 1x2 span
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1501856054482-8b7fbff7b3fe?q=80&w=2400",
+    image: "images/Gotham.png",
     title: "Typeface Poster",
     size: "large", // 2x2 span
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=2400",
+    image: "images/Mad_hatter.png",
     title: "Typography Illustration",
     size: "small", // 1x1 span
   },
   {
     id: 7,
-    image: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?q=80&w=2400",
+    image: "images/Magazine_1.png",
     title: "Communication Arts Magazine",
     size: "medium", // 1x2 span
   },
   {
     id: 9,
-    image: "https://images.unsplash.com/photo-1498936178812-4b2e558d2937?q=80&w=2400",
+    image: "images/Bird.png",
     title: "Scientific Illustration",
     size: "medium", // 1x2 span
   },
   {
     id: 10,
-    image: "https://images.unsplash.com/photo-1487252665478-49b61b47f302?q=80&w=2400",
+    image: "Cd_cover.png",
     title: "Amara Bleu's Vinyl and CD Cover",
     size: "small", // 1x1 span
   },
