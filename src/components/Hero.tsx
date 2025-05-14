@@ -5,6 +5,8 @@ import { Toggle } from "@/components/ui/toggle";
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isAvailable, setIsAvailable] = useState(true);
+  const [designType, setDesignType] = useState("Web");
+  const designTypes = ["Web", "UX", "Graphic", "Interaction"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -19,10 +21,20 @@ const Hero = () => {
       observer.observe(heroRef.current);
     }
 
+    // Animation interval for changing design types
+    const intervalId = setInterval(() => {
+      setDesignType(prevType => {
+        const currentIndex = designTypes.indexOf(prevType);
+        const nextIndex = (currentIndex + 1) % designTypes.length;
+        return designTypes[nextIndex];
+      });
+    }, 3000); // Change every 3 seconds
+
     return () => {
       if (heroRef.current) {
         observer.unobserve(heroRef.current);
       }
+      clearInterval(intervalId);
     };
   }, []);
 
@@ -45,7 +57,40 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s' }}
           >
-            I am a <span className="text-burgundy">Web</span> Designer
+            I am a <span className="text-burgundy relative overflow-hidden inline-block min-w-[110px]">
+              <span className="absolute transition-all duration-500 ease-in-out"
+                style={{
+                  opacity: designType === "Web" ? 1 : 0,
+                  transform: `translateY(${designType === "Web" ? 0 : '-100%'})`,
+                }}
+              >
+                Web
+              </span>
+              <span className="absolute transition-all duration-500 ease-in-out"
+                style={{
+                  opacity: designType === "UX" ? 1 : 0,
+                  transform: `translateY(${designType === "UX" ? 0 : '-100%'})`,
+                }}
+              >
+                UX
+              </span>
+              <span className="absolute transition-all duration-500 ease-in-out"
+                style={{
+                  opacity: designType === "Graphic" ? 1 : 0,
+                  transform: `translateY(${designType === "Graphic" ? 0 : '-100%'})`,
+                }}
+              >
+                Graphic
+              </span>
+              <span className="absolute transition-all duration-500 ease-in-out"
+                style={{
+                  opacity: designType === "Interaction" ? 1 : 0,
+                  transform: `translateY(${designType === "Interaction" ? 0 : '-100%'})`,
+                }}
+              >
+                Interaction
+              </span>
+            </span> Designer
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
