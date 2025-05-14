@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
@@ -6,8 +5,8 @@ import { cn } from "@/lib/utils";
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isAvailable, setIsAvailable] = useState(true);
-  const [designType, setDesignType] = useState("Interaction");
-  const designTypes = ["Interaction", "Web", "UI/UX", "Graphic"];
+  const [designType, setDesignType] = useState("Web");
+  const designTypes = ["Web", "UX", "Graphic", "Interaction"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -39,11 +38,6 @@ const Hero = () => {
     };
   }, []);
 
-  // Helper function to determine if we should use "an" instead of "a"
-  const getArticle = (type: string) => {
-    return type === "Interaction" ? "an " : "a ";
-  };
-
   return (
     <section 
       id="home" 
@@ -63,38 +57,24 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            I am 
-            <span className="inline-block mx-2">
+            I am a <span className="text-burgundy inline-block relative">
+              <span className="inline-block" style={{ visibility: 'hidden' }}>
+                {/* This invisible span maintains the width */}
+                {designTypes.reduce((a, b) => a.length > b.length ? a : b)}
+              </span>
               {designTypes.map((type) => (
                 <span 
                   key={type}
-                  className="inline-block"
+                  className="absolute left-0 top-0 transition-all duration-500 ease-in-out whitespace-nowrap"
                   style={{
                     opacity: designType === type ? 1 : 0,
-                    position: 'relative',
-                    transition: 'opacity 0.5s ease-in-out',
+                    transform: `translateY(${designType === type ? 0 : '10px'})`,
                   }}
                 >
-                  {getArticle(type)}
+                  {type}
                 </span>
               ))}
-              <span className="text-burgundy inline-block">
-                {designTypes.map((type) => (
-                  <span 
-                    key={type}
-                    className="absolute left-0 transition-all duration-500 ease-in-out whitespace-nowrap"
-                    style={{
-                      opacity: designType === type ? 1 : 0,
-                      transform: `translateY(${designType === type ? 0 : '10px'})`,
-                      position: 'relative',
-                    }}
-                  >
-                    {type}
-                  </span>
-                ))}
-              </span>
-            </span>
-            Designer
+            </span> Designer
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
