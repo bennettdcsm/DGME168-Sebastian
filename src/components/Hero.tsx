@@ -7,7 +7,7 @@ const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isAvailable, setIsAvailable] = useState(true);
   const [designType, setDesignType] = useState("Interaction");
-  const designTypes = ["Interaction", "Web", "UX", "Graphic"];
+  const designTypes = ["Interaction", "Web", "UI/UX", "Graphic"];
   const [designerMoved, setDesignerMoved] = useState(true);
 
   useEffect(() => {
