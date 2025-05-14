@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
@@ -5,8 +6,8 @@ import { cn } from "@/lib/utils";
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isAvailable, setIsAvailable] = useState(true);
-  const [designType, setDesignType] = useState("Web");
-  const designTypes = ["Web", "UX", "Graphic", "Interaction"];
+  const [designType, setDesignType] = useState("Interaction");
+  const designTypes = ["Interaction", "Web", "UX", "Graphic"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -38,6 +39,11 @@ const Hero = () => {
     };
   }, []);
 
+  // Function to determine whether to use "a" or "an"
+  const getArticle = (type: string) => {
+    return type === "Interaction" ? "an" : "a";
+  };
+
   return (
     <section 
       id="home" 
@@ -51,30 +57,45 @@ const Hero = () => {
             className="block mb-1 text-sm uppercase tracking-widest font-light animate-fade-in opacity-0" 
             style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
           >
-            Hi there, I am a:
+            Hi there, I am{' '}
+            {designTypes.map((type) => (
+              <span 
+                key={`article-${type}`}
+                className="transition-opacity duration-500 ease-in-out"
+                style={{
+                  opacity: designType === type ? 1 : 0,
+                  position: designType === type ? 'relative' : 'absolute',
+                  visibility: designType === type ? 'visible' : 'hidden',
+                }}
+              >
+                {getArticle(type)}
+              </span>
+            ))}
+            :
           </span>
           <h1 
-            className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
+            className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0 flex flex-wrap justify-center" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-           <span className="text-burgundy inline-block relative">
-              <span className="inline-block" style={{ visibility: 'hidden' }}>
-                {/* This invisible span maintains the width */}
-                {designTypes.reduce((a, b) => a.length > b.length ? a : b)}
+            <div className="flex items-baseline">
+              <span className="text-burgundy inline-flex items-baseline relative mx-2">
+                {designTypes.map((type) => (
+                  <span 
+                    key={type}
+                    className="transition-all duration-500 ease-in-out whitespace-nowrap absolute"
+                    style={{
+                      opacity: designType === type ? 1 : 0,
+                      transform: `translateY(${designType === type ? 0 : '10px'})`,
+                      position: designType === type ? 'relative' : 'absolute',
+                      left: 0,
+                    }}
+                  >
+                    {type}
+                  </span>
+                ))}
               </span>
-              {designTypes.map((type) => (
-                <span 
-                  key={type}
-                  className="absolute left-0 top-0 transition-all duration-500 ease-in-out whitespace-nowrap"
-                  style={{
-                    opacity: designType === type ? 1 : 0,
-                    transform: `translateY(${designType === type ? 0 : '10px'})`,
-                  }}
-                >
-                  {type}
-                </span>
-              ))}
-            </span> Designer
+              <span className="whitespace-nowrap">Designer</span>
+            </div>
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
