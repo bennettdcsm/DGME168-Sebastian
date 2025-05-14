@@ -51,13 +51,13 @@ const Hero = () => {
             className="block mb-1 text-sm uppercase tracking-widest font-light animate-fade-in opacity-0" 
             style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
           >
-            Hi there,
+            Hi there, I am a:
           </span>
           <h1 
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            I am a <span className="text-burgundy inline-block relative">
+           <span className="text-burgundy inline-block relative">
               <span className="inline-block" style={{ visibility: 'hidden' }}>
                 {/* This invisible span maintains the width */}
                 {designTypes.reduce((a, b) => a.length > b.length ? a : b)}
