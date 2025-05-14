@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -9,6 +10,7 @@ const Hero = () => {
   const [designType, setDesignType] = useState("Interaction");
   const designTypes = ["Interaction", "Web", "UI/UX", "Graphic"];
   const [designerMoved, setDesignerMoved] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -86,10 +88,10 @@ const Hero = () => {
             :
           </span>
           <h1 
-            className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0 flex flex-wrap justify-center" 
+            className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            <div className="flex items-baseline">
+            <div className={cn("flex flex-wrap justify-center", isMobile && "flex-col items-center")}>
               <span className="text-burgundy inline-flex items-baseline relative mx-2">
                 {designTypes.map((type) => (
                   <span 
@@ -107,7 +109,10 @@ const Hero = () => {
                 ))}
               </span>
               <span 
-                className="whitespace-nowrap ml-4"
+                className={cn(
+                  "whitespace-nowrap",
+                  isMobile ? "mt-2" : "ml-4"
+                )}
                 style={{
                   transition: 'transform 0.8s ease-out',
                   transform: designerMoved ? 'translateX(0)' : 'translateX(-10px)',
