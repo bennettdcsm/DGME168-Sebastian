@@ -5,11 +5,11 @@ import CaseStudy from './CaseStudy';
 
 const projects = [
   {
-    title: "Canada College Digital Art & Animation Website",
+    title: "Cañada College Digital Art & Animation Website",
     category: "Web Design",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2400",
     link: "#",
-    description: "Redesign of the home page of Canada College Digital Art & Animation program website. This project focused on improving the user experience while showcasing the creative work of students in the program."
+    description: "Redesign of the home page of Cañada College Digital Art & Animation program website. This project focused on improving the user experience while showcasing the creative work of students in the program."
   },
   {
     title: "CSM Athletic Center: QR Code System",
@@ -19,15 +19,15 @@ const projects = [
     description: "Design and implementation of a QR code system for the CSM Athletic Center to streamline check-in procedures and improve facility management. The solution provides real-time data on facility usage."
   },
   {
-    title: "DGME Website",
+    title: "CSM DGME Website",
     category: "Web Design and Development",
     image: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2400",
     link: "#",
     description: "Complete visual redesign and development of the DGME website, focusing on responsive design, accessibility standards, and an improved content management system for easier updates by staff."
   },
   {
-    title: "Mobile Shopping App",
-    category: "UX/UI Design",
+    title: "Quill: A Journaling App Webpage",
+    category: "Web Design and Development",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2400",
     link: "#",
     description: "Design of a mobile shopping application focused on creating an intuitive and delightful shopping experience. The project involved extensive user research, wireframing, and prototyping to ensure optimal usability."
