@@ -61,7 +61,7 @@ const AboutSection = () => {
             animationDelay: '0.3s'
           }}>
               <p>
-                According to ChatGPT: "In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why"
+                My name is Sebastian and according to ChatGPT: "In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why"
               </p>
               <p>
                 Actually I am not famous enough to be on ChatGPT, but I do rely on the 3Ws :D
