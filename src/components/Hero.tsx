@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
@@ -62,40 +63,38 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            I am {designTypes.map((type) => (
-              <span 
-                key={type}
-                className="inline-block"
-                style={{
-                  opacity: designType === type ? 1 : 0,
-                  position: 'relative',
-                  transition: 'opacity 0.5s ease-in-out',
-                  width: 0,
-                  overflow: 'visible',
-                  height: 0
-                }}
-              >
-                {getArticle(type)}
-              </span>
-            ))}
-            <span className="text-burgundy inline-block relative">
-              <span className="inline-block" style={{ visibility: 'hidden' }}>
-                {/* This invisible span maintains the width */}
-                {designTypes.reduce((a, b) => a.length > b.length ? a : b)}
-              </span>
+            I am 
+            <span className="inline-block mx-2">
               {designTypes.map((type) => (
                 <span 
                   key={type}
-                  className="absolute left-0 top-0 transition-all duration-500 ease-in-out whitespace-nowrap"
+                  className="inline-block"
                   style={{
                     opacity: designType === type ? 1 : 0,
-                    transform: `translateY(${designType === type ? 0 : '10px'})`,
+                    position: 'relative',
+                    transition: 'opacity 0.5s ease-in-out',
                   }}
                 >
-                  {type}
+                  {getArticle(type)}
                 </span>
               ))}
-            </span> Designer
+              <span className="text-burgundy inline-block">
+                {designTypes.map((type) => (
+                  <span 
+                    key={type}
+                    className="absolute left-0 transition-all duration-500 ease-in-out whitespace-nowrap"
+                    style={{
+                      opacity: designType === type ? 1 : 0,
+                      transform: `translateY(${designType === type ? 0 : '10px'})`,
+                      position: 'relative',
+                    }}
+                  >
+                    {type}
+                  </span>
+                ))}
+              </span>
+            </span>
+            Designer
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
