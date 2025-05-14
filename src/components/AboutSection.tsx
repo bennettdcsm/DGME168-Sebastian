@@ -118,7 +118,7 @@ const AboutSection = () => {
               <div>
                 <h4 className="text-lg font-semibold">Web Developer - ITS Services</h4>
                 <p className="text-burgundy">College of San Mateo District Office • 2025 - Present</p>
-                <p className="mt-2">Leading UX design initiatives for enterprise clients, focusing on creating accessible and intuitive interfaces.</p>
+                <p className="mt-2">Update the distric website, troubleshot, and resolve web-related issues.</p>
               </div>
               <div>
                 <h4 className="text-lg font-semibold">Visual Designer</h4>
@@ -128,7 +128,7 @@ const AboutSection = () => {
               <div>
                 <h4 className="text-lg font-semibold">ESL Student Tutor</h4>
                 <p className="text-burgundy">College of San Mateo • 2024</p>
-                <p className="mt-2">Created user-centered designs for various digital products, from wireframes to final mockups.</p>
+                <p className="mt-2">Supported ESL Students.</p>
               </div>
             </div>
           </div>
@@ -140,19 +140,19 @@ const AboutSection = () => {
             </div>
             <div className="space-y-8">
               <div>
-                <h4 className="text-lg font-semibold">Associate in Arts Degree: Mobile App and Web Design</h4>
+                <h4 className="text-lg font-semibold">Associate in Science Degree: Mobile App and Web Development</h4>
                 <p className="text-burgundy">College of San Mateo • 2025 - Present</p>
-                <p className="mt-2">Specialized in user research methodologies and interactive digital experiences.</p>
+                <p className="mt-2">Specializing in web development methodologies and Front-End coding languages.</p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold">Associate in Arts Degree: Mobile App and Web Development</h4>
+                <h4 className="text-lg font-semibold">Associate in Arts Degree: Mobile App and Web Design</h4>
                 <p className="text-burgundy">College of San Mateo • 2024 - Present</p>
-                <p className="mt-2">Focus on web development technologies and software engineering principles.</p>
+                <p className="mt-2">Focus on web design technologies and coding principles.</p>
               </div>
               <div>
                 <h4 className="text-lg font-semibold">Google UX Design Professional Certificate</h4>
                 <p className="text-burgundy">Coursera • 2025</p>
-                <p className="mt-2">Foundations of visual design, typography, and digital illustration.</p>
+                <p className="mt-2">Foundations of user experience design, research, and the complete process.</p>
               </div>
             </div>
           </div>
