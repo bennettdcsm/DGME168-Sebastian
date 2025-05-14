@@ -13,7 +13,7 @@ const galleryItems = [
     id: 2,
     image: "images/Snake.png",
     title: "Hide and Snake: Children's Book",
-    size: "medium", // 1x2 span
+    size: "large", // 2x2 span
   },
   {
     id: 5,
@@ -31,17 +31,17 @@ const galleryItems = [
     id: 7,
     image: "images/Magazine_1.png",
     title: "Communication Arts Magazine",
-    size: "medium", // 1x2 span
+    size: "large", // 2x2 span
   },
   {
     id: 9,
     image: "images/Bird.png",
     title: "Scientific Illustration",
-    size: "medium", // 1x2 span
+    size: "large", // 2x2 span
   },
   {
     id: 10,
-    image: "Cd_cover.png",
+    image: "images/Cd_cover.png",
     title: "Amara Bleu's Vinyl and CD Cover",
     size: "small", // 1x1 span
   },
