@@ -8,7 +8,7 @@ const Hero = () => {
   const [isAvailable, setIsAvailable] = useState(true);
   const [designType, setDesignType] = useState("Interaction");
   const designTypes = ["Interaction", "Web", "UX", "Graphic"];
-  const [designerVisible, setDesignerVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -25,8 +25,8 @@ const Hero = () => {
 
     // Animation interval for changing design types
     const intervalId = setInterval(() => {
-      // First hide the designer text
-      setDesignerVisible(false);
+      // Hide both elements
+      setVisible(false);
       
       // After a short delay, change the design type
       setTimeout(() => {
@@ -36,10 +36,10 @@ const Hero = () => {
           return designTypes[nextIndex];
         });
         
-        // After changing the design type, show the designer text again
+        // After changing the design type, show both elements again
         setTimeout(() => {
-          setDesignerVisible(true);
-        }, 400); // Delay before showing "Designer"
+          setVisible(true);
+        }, 400); // Delay before showing both elements
       }, 200); // Delay before changing the design type
     }, 3000); // Change every 3 seconds
 
@@ -96,8 +96,8 @@ const Hero = () => {
                     key={type}
                     className="transition-all duration-500 ease-in-out whitespace-nowrap absolute"
                     style={{
-                      opacity: designType === type ? 1 : 0,
-                      transform: `translateY(${designType === type ? 0 : '10px'})`,
+                      opacity: visible ? 1 : 0,
+                      transform: `translateY(${visible ? 0 : '10px'})`,
                       position: designType === type ? 'relative' : 'absolute',
                       left: 0,
                     }}
@@ -107,10 +107,10 @@ const Hero = () => {
                 ))}
               </span>
               <span 
-                className={`whitespace-nowrap transition-all duration-700 ease-in-out ml-4`} 
+                className={`whitespace-nowrap transition-all duration-500 ease-in-out ml-4`} 
                 style={{
-                  opacity: designerVisible ? 1 : 0,
-                  transform: designerVisible ? 'translateX(0)' : 'translateX(-20px)'
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? 'translateX(0)' : 'translateX(-20px)'
                 }}
               >
                 Designer
