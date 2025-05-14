@@ -57,17 +57,18 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            I am a <span className="text-burgundy relative inline-flex min-w-[180px] justify-center">
+            I am a <span className="text-burgundy inline-block relative">
+              <span className="inline-block" style={{ visibility: 'hidden' }}>
+                {/* This invisible span maintains the width */}
+                {designTypes.reduce((a, b) => a.length > b.length ? a : b)}
+              </span>
               {designTypes.map((type) => (
                 <span 
                   key={type}
-                  className="absolute transition-all duration-500 ease-in-out"
+                  className="absolute left-0 top-0 transition-all duration-500 ease-in-out whitespace-nowrap"
                   style={{
                     opacity: designType === type ? 1 : 0,
-                    transform: `translateY(${designType === type ? 0 : '20px'})`,
-                    transitionProperty: 'opacity, transform',
-                    display: 'block',
-                    width: '100%',
+                    transform: `translateY(${designType === type ? 0 : '10px'})`,
                   }}
                 >
                   {type}
