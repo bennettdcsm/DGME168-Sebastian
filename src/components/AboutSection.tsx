@@ -48,9 +48,10 @@ const AboutSection = () => {
                 animationDelay: '0.5s'
               }}>
                 <div className="bg-gray-100 h-full w-full aspect-[4/3]">
+                  
                   {/* Placeholder for profile image */}
                   <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    Profile Image
+                    <img src="img/Sebastian.png" alt="Profile Picture"
                   </div>
                 </div>
               </div>
