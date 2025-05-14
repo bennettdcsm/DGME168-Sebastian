@@ -51,7 +51,7 @@ const AboutSection = () => {
                   
                   {/* Placeholder for profile image */}
                   <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    <img src="img/Sebastian.png" alt="Profile Picture">
+                  <img src="/images/Sebastian.png" alt="Profile Picture" />
                   </div>
                 </div>
               </div>
@@ -90,9 +90,16 @@ const AboutSection = () => {
               <div className="bg-gray-100 h-full w-full aspect-[4/3]">
                 
                 {/* profile image */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  <img src="/images/Sebastian.png" alt="Profile Picture" />
-                </div>
+                <div className="w-full h-full flex items-center justify-center text-gray-400 bg-white overflow-hidden">
+              <img 
+                src="/images/Sebastian.png" 
+                alt="Profile Picture" 
+                className="max-w-full max-h-full object-contain w-full h-full sm:w-auto sm:h-auto" 
+              />
+            </div>
+
+
+
               </div>
             </div>
           )}

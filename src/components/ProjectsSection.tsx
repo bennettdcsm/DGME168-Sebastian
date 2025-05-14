@@ -7,14 +7,14 @@ const projects = [
   {
     title: "Cañada College Digital Art & Animation Website",
     category: "Web Design",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2400",
+    image: "images/Canada_mockup_2.png",
     link: "#",
     description: "Redesign of the home page of Cañada College Digital Art & Animation program website. This project focused on improving the user experience while showcasing the creative work of students in the program."
   },
   {
     title: "CSM Athletic Center: QR Code System",
     category: "UX Design",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2400",
+    image: "images/Qr_code_1.png",
     link: "#",
     description: "Design and implementation of a QR code system for the CSM Athletic Center to streamline check-in procedures and improve facility management. The solution provides real-time data on facility usage."
   },
@@ -28,7 +28,7 @@ const projects = [
   {
     title: "Quill: A Journaling App Webpage",
     category: "Web Design and Development",
-    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2400",
+    image: "images/Quill_1.png",
     link: "#",
     description: "Design of a mobile shopping application focused on creating an intuitive and delightful shopping experience. The project involved extensive user research, wireframing, and prototyping to ensure optimal usability."
   }
