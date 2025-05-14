@@ -51,7 +51,7 @@ const AboutSection = () => {
                   
                   {/* Placeholder for profile image */}
                   <div className="w-full h-full flex items-center justify-center text-gray-400">
-                    <img src="img/Sebastian.png" alt="Profile Picture"
+                    <img src="img/Sebastian.png" alt="Profile Picture">
                   </div>
                 </div>
               </div>
