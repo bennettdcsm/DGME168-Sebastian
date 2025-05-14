@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [isAvailable, setIsAvailable] = useState(true);
-  const [designType, setDesignType] = useState("Web");
-  const designTypes = ["Web", "UX", "Graphic", "Interaction"];
+  const [designType, setDesignType] = useState("Interaction");
+  const designTypes = ["Interaction", "Web", "UI/UX", "Graphic"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -38,6 +38,11 @@ const Hero = () => {
     };
   }, []);
 
+  // Helper function to determine if we should use "an" instead of "a"
+  const getArticle = (type: string) => {
+    return type === "Interaction" ? "an " : "a ";
+  };
+
   return (
     <section 
       id="home" 
@@ -57,7 +62,23 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            I am a <span className="text-burgundy inline-block relative">
+            I am {designTypes.map((type) => (
+              <span 
+                key={type}
+                className="inline-block"
+                style={{
+                  opacity: designType === type ? 1 : 0,
+                  position: 'relative',
+                  transition: 'opacity 0.5s ease-in-out',
+                  width: 0,
+                  overflow: 'visible',
+                  height: 0
+                }}
+              >
+                {getArticle(type)}
+              </span>
+            ))}
+            <span className="text-burgundy inline-block relative">
               <span className="inline-block" style={{ visibility: 'hidden' }}>
                 {/* This invisible span maintains the width */}
                 {designTypes.reduce((a, b) => a.length > b.length ? a : b)}
