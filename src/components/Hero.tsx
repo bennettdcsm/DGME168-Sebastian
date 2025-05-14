@@ -1,6 +1,6 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
+import { cn } from "@/lib/utils";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -49,80 +49,63 @@ const Hero = () => {
         <div className="text-center flex flex-col justify-center items-center max-w-3xl mx-auto">
           <span 
             className="block mb-1 text-sm uppercase tracking-widest font-light animate-fade-in opacity-0" 
-            style={{ animationDelay: '0.3s' }}
+            style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
           >
             Hi there,
           </span>
           <h1 
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
-            style={{ animationDelay: '0.6s' }}
+            style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
           >
-            I am a <span className="text-burgundy relative overflow-hidden inline-block min-w-[110px]">
-              <span className="absolute transition-all duration-500 ease-in-out"
-                style={{
-                  opacity: designType === "Web" ? 1 : 0,
-                  transform: `translateY(${designType === "Web" ? 0 : '-100%'})`,
-                }}
-              >
-                Web
-              </span>
-              <span className="absolute transition-all duration-500 ease-in-out"
-                style={{
-                  opacity: designType === "UX" ? 1 : 0,
-                  transform: `translateY(${designType === "UX" ? 0 : '-100%'})`,
-                }}
-              >
-                UX
-              </span>
-              <span className="absolute transition-all duration-500 ease-in-out"
-                style={{
-                  opacity: designType === "Graphic" ? 1 : 0,
-                  transform: `translateY(${designType === "Graphic" ? 0 : '-100%'})`,
-                }}
-              >
-                Graphic
-              </span>
-              <span className="absolute transition-all duration-500 ease-in-out"
-                style={{
-                  opacity: designType === "Interaction" ? 1 : 0,
-                  transform: `translateY(${designType === "Interaction" ? 0 : '-100%'})`,
-                }}
-              >
-                Interaction
-              </span>
+            I am a <span className="text-burgundy relative inline-flex min-w-[180px] justify-center">
+              {designTypes.map((type) => (
+                <span 
+                  key={type}
+                  className="absolute transition-all duration-500 ease-in-out"
+                  style={{
+                    opacity: designType === type ? 1 : 0,
+                    transform: `translateY(${designType === type ? 0 : '20px'})`,
+                    transitionProperty: 'opacity, transform',
+                    display: 'block',
+                    width: '100%',
+                  }}
+                >
+                  {type}
+                </span>
+              ))}
             </span> Designer
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
-            style={{ animationDelay: '0.9s' }}
+            style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}
           >
             Based in San Francisco
           </p>
           
           <p 
             className="mb-8 opacity-80 animate-fade-in opacity-0" 
-            style={{ animationDelay: '1.2s' }}
+            style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}
           >
             According to ChatGPT: "In every design Sebastian creates, he relies on the 3 Ws: the Who, the What, and the Why" 
           </p>
           
           <p 
             className="mb-8 opacity-80 animate-fade-in opacity-0" 
-            style={{ animationDelay: '1.5s' }}
+            style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}
           >
             Actually... I am not famous enough to be on ChatGPT, but I do rely on the 3Ws 🤓
           </p>
           
           <p 
             className="mb-10 opacity-80 animate-fade-in opacity-0" 
-            style={{ animationDelay: '1.8s' }}
+            style={{ animationDelay: '1.8s', animationFillMode: 'forwards' }}
           >
             I also balance storytelling and visuals to create something cool and unforgettable.
           </p>
           
           <div 
             className="flex space-x-5 animate-fade-in opacity-0" 
-            style={{ animationDelay: '2.1s' }}
+            style={{ animationDelay: '2.1s', animationFillMode: 'forwards' }}
           >
             <a 
               href="#contact" 
@@ -141,7 +124,7 @@ const Hero = () => {
           {/* Available to Work Toggle Button */}
           <div 
             className="mt-8 animate-fade-in opacity-0" 
-            style={{ animationDelay: '2.4s' }}
+            style={{ animationDelay: '2.4s', animationFillMode: 'forwards' }}
           >
             <Toggle 
               pressed={isAvailable} 
@@ -165,7 +148,5 @@ const Hero = () => {
     </section>
   );
 };
-
-const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
 
 export default Hero;
