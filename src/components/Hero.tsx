@@ -8,7 +8,7 @@ const Hero = () => {
   const [isAvailable, setIsAvailable] = useState(true);
   const [designType, setDesignType] = useState("Interaction");
   const designTypes = ["Interaction", "Web", "UX", "Graphic"];
-  const [designerVisible, setDesignerVisible] = useState(true);
+  const [designerMoved, setDesignerMoved] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -25,8 +25,8 @@ const Hero = () => {
 
     // Animation interval for changing design types
     const intervalId = setInterval(() => {
-      // First hide the designer text
-      setDesignerVisible(false);
+      // First animate the design type change
+      setDesignerMoved(false);
       
       // After a short delay, change the design type
       setTimeout(() => {
@@ -36,10 +36,10 @@ const Hero = () => {
           return designTypes[nextIndex];
         });
         
-        // After changing the design type, show the designer text again
+        // After changing the design type, animate the designer text position
         setTimeout(() => {
-          setDesignerVisible(true);
-        }, 400); // Delay before showing "Designer"
+          setDesignerMoved(true);
+        }, 600); // Delay before moving "Designer" to its new position
       }, 200); // Delay before changing the design type
     }, 3000); // Change every 3 seconds
 
@@ -107,10 +107,11 @@ const Hero = () => {
                 ))}
               </span>
               <span 
-                className={`whitespace-nowrap transition-all duration-700 ease-in-out ml-4`} 
+                className="whitespace-nowrap ml-4"
                 style={{
-                  opacity: designerVisible ? 1 : 0,
-                  transform: designerVisible ? 'translateX(0)' : 'translateX(-20px)'
+                  transition: 'transform 0.8s ease-out',
+                  transform: designerMoved ? 'translateX(0)' : 'translateX(-10px)',
+                  opacity: 1 // Always visible
                 }}
               >
                 Designer
