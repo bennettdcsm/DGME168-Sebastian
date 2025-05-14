@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Toggle } from "@/components/ui/toggle";
 import { cn } from "@/lib/utils";
@@ -170,7 +169,7 @@ const Hero = () => {
             </a>
           </div>
           
-          {/* Available to Work Toggle Button */}
+          {/* Available to Work Toggle Button with updated circle color */}
           <div 
             className="mt-8 animate-fade-in opacity-0" 
             style={{ animationDelay: '2.4s', animationFillMode: 'forwards' }}
@@ -186,7 +185,7 @@ const Hero = () => {
               <span className="flex items-center">
                 <span className={cn(
                   "w-2 h-2 rounded-full mr-2",
-                  isAvailable ? "bg-white" : "bg-white/60"
+                  isAvailable ? "bg-green-200" : "bg-white/60"
                 )}></span>
                 {isAvailable ? "Available to Work" : "Not Available"}
               </span>
