@@ -7,6 +7,7 @@ import ProcessSection from './case-study/ProcessSection';
 import TakeawaysSection from './case-study/TakeawaysSection';
 import BackButton from './case-study/BackButton';
 import { mockupImages, processImages } from './case-study/constants';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CaseStudyProps {
   project: {
@@ -23,6 +24,7 @@ const CaseStudy = ({
   onClose
 }: CaseStudyProps) => {
   const studyRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     // Scroll to top when case study is opened
@@ -65,7 +67,7 @@ const CaseStudy = ({
       
       <ProcessSection processImages={processImages} />
       
-      <TakeawaysSection onClose={onClose} />
+      <TakeawaysSection onClose={onClose} isMobile={isMobile} />
     </div>
   );
 };

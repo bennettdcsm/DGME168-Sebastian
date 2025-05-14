@@ -1,9 +1,11 @@
 
 import { useEffect, useRef } from 'react';
 import { GraduationCap, Briefcase } from 'lucide-react';
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -31,7 +33,7 @@ const AboutSection = () => {
   return <section id="about" ref={sectionRef} className="py-24 bg-white">
       <div className="section-container">
         <div className="flex flex-col md:flex-row gap-12">
-          <div className="md:w-1/2">
+          <div className={`${isMobile ? "order-2" : ""} md:w-1/2`}>
             <span className="text-burgundy text-sm uppercase tracking-widest font-medium opacity-0 animate-slide-up">
               About Me
             </span>
@@ -40,6 +42,19 @@ const AboutSection = () => {
           }}>
               Designer & Developer
             </h2>
+            
+            {isMobile && (
+              <div className="md:w-1/2 w-full my-6 opacity-0 animate-slide-right" style={{
+                animationDelay: '0.5s'
+              }}>
+                <div className="bg-gray-100 h-full w-full aspect-[4/3]">
+                  {/* Placeholder for profile image */}
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    Profile Image
+                  </div>
+                </div>
+              </div>
+            )}
             
             <div className="space-y-6 opacity-0 animate-slide-up" style={{
             animationDelay: '0.3s'
@@ -67,16 +82,18 @@ const AboutSection = () => {
             </div>
           </div>
           
-          <div className="md:w-1/2 opacity-0 animate-slide-right" style={{
-          animationDelay: '0.5s'
-        }}>
-            <div className="bg-gray-100 h-full w-full aspect-[4/3]">
-              {/* Placeholder for profile image */}
-              <div className="w-full h-full flex items-center justify-center text-gray-400">
-                Profile Image
+          {!isMobile && (
+            <div className="md:w-1/2 opacity-0 animate-slide-right" style={{
+              animationDelay: '0.5s'
+            }}>
+              <div className="bg-gray-100 h-full w-full aspect-[4/3]">
+                {/* Placeholder for profile image */}
+                <div className="w-full h-full flex items-center justify-center text-gray-400">
+                  Profile Image
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
         
         {/* Experience and Education Section */}

@@ -4,9 +4,10 @@ import { ExternalLink } from 'lucide-react';
 
 interface TakeawaysSectionProps {
   onClose: () => void;
+  isMobile?: boolean;
 }
 
-const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
+const TakeawaysSection = ({ onClose, isMobile }: TakeawaysSectionProps) => {
   const handleBackClick = (e: React.MouseEvent) => {
     e.preventDefault();
     onClose();
@@ -18,6 +19,10 @@ const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
       }
     }, 100);
   };
+
+  const buttonClasses = isMobile 
+    ? "px-8 py-4" 
+    : "px-8 py-4";
 
   return (
     <section className="py-24 bg-burgundy text-white opacity-0 translate-y-4 transition-all duration-700">
@@ -33,17 +38,17 @@ const TakeawaysSection = ({ onClose }: TakeawaysSectionProps) => {
             <li className="text-lg">User testing revealed that prospective students found the new layout more intuitive and informative, leading to more program inquiries.</li>
           </ul>
         </div>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <a 
             href="#" 
             onClick={handleBackClick} 
-            className="bg-black text-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
+            className={`bg-black text-white ${buttonClasses} font-medium hover:bg-white hover:text-black transition-colors text-center`}
           >
             Back to Portfolio
           </a>
           <a 
             href="#" 
-            className="border border-white px-8 py-4 font-medium hover:bg-white hover:text-black transition-colors"
+            className={`border border-white ${buttonClasses} font-medium hover:bg-white hover:text-black transition-colors text-center`}
           >
             See Prototype <ExternalLink className="ml-1 h-4 w-4 inline" />
           </a>
