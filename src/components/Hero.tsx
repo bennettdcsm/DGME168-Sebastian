@@ -8,6 +8,7 @@ const Hero = () => {
   const [isAvailable, setIsAvailable] = useState(true);
   const [designType, setDesignType] = useState("Interaction");
   const designTypes = ["Interaction", "Web", "UX", "Graphic"];
+  const [designerVisible, setDesignerVisible] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -24,11 +25,22 @@ const Hero = () => {
 
     // Animation interval for changing design types
     const intervalId = setInterval(() => {
-      setDesignType(prevType => {
-        const currentIndex = designTypes.indexOf(prevType);
-        const nextIndex = (currentIndex + 1) % designTypes.length;
-        return designTypes[nextIndex];
-      });
+      // First hide the designer text
+      setDesignerVisible(false);
+      
+      // After a short delay, change the design type
+      setTimeout(() => {
+        setDesignType(prevType => {
+          const currentIndex = designTypes.indexOf(prevType);
+          const nextIndex = (currentIndex + 1) % designTypes.length;
+          return designTypes[nextIndex];
+        });
+        
+        // After changing the design type, show the designer text again
+        setTimeout(() => {
+          setDesignerVisible(true);
+        }, 400); // Delay before showing "Designer"
+      }, 200); // Delay before changing the design type
     }, 3000); // Change every 3 seconds
 
     return () => {
@@ -94,9 +106,18 @@ const Hero = () => {
                   </span>
                 ))}
               </span>
-              <span className="whitespace-nowrap">Designer</span>
+              <span 
+                className={`whitespace-nowrap transition-all duration-700 ease-in-out ml-4`} 
+                style={{
+                  opacity: designerVisible ? 1 : 0,
+                  transform: designerVisible ? 'translateX(0)' : 'translateX(-20px)'
+                }}
+              >
+                Designer
+              </span>
             </div>
           </h1>
+          
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
             style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}
