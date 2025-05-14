@@ -37,7 +37,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <Link to="/" className="text-black font-playfair text-xl font-bold">J SEBASTIAN.</Link>
+            <Link to="/" className="text-black font-playfair text-xl font-bold">SEBASTIAN.</Link>
           </div>
           
           <div className="flex space-x-6 mb-4 md:mb-0">
@@ -72,7 +72,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-6 text-center text-xs text-black/50">
-          <p>&copy; {currentYear} J Sebastian. All Rights Reserved.</p>
+          <p>&copy; {currentYear} Sebastian. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

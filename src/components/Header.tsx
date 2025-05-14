@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
@@ -70,7 +71,7 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link to="/" className="text-black font-playfair text-2xl font-bold">J SEBASTIAN.</Link>
+        <Link to="/" className="text-black font-playfair text-2xl font-bold">SEBASTIAN.</Link>
         
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
