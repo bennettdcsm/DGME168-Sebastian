@@ -45,13 +45,13 @@ const Hero = () => {
             className="font-playfair text-5xl md:text-7xl font-bold mb-6 animate-fade-in opacity-0" 
             style={{ animationDelay: '0.6s' }}
           >
-            I am <span className="text-burgundy">Sebastian</span>
+            I am a <span className="text-burgundy">Web</span> Designer
           </h1>
           <p 
             className="mb-5 text-lg animate-fade-in opacity-0" 
             style={{ animationDelay: '0.9s' }}
           >
-            Web and UX Designer based in San Francisco
+            Based in San Francisco
           </p>
           
           <p 
